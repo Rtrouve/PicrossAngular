@@ -1,16 +1,24 @@
-<nav class="navbar navbar-light bg-light">
-    <span class="navbar-brand mb-0 h1">Picross</span>
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/random" >Random</a>
-        </li>
-        <li class="nav-item dropdown">
-          <span class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Niveaux
-          </span>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" *ngFor="let c of counter(numLevel);let i=index" routerLink="/level/{{i}}" >Niveau {{i}}</a>
-          </div>
-        </li>
-    </ul>
+
+<nav class="navbar-light navbar-expand-sm bg-light">
+    
+    <div class=" navbar-collapse">
+        <a class="navbar-brand" href="#">Picross</a>
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/random" >Random</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/Chrono" >Time trial</a>
+          </li>
+          <li class="nav-item dropdown">
+            <span class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Niveaux
+            </span>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" *ngFor="let c of numbers;let i=index" routerLink="/level/{{(i + 1)}}" >Niveau {{(i + 1)}}</a>
+            </div>
+          </li>
+      </ul>
+  </div>
 </nav>
+

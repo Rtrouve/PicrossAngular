@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { mapChildrenIntoArray } from '@angular/router/src/url_tree';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   numLevel = 2;
-  constructor() { }
+  numbers: Array<Number>;
+  constructor() {
+    this.numbers = Array(this.numLevel);
+   }
 
   ngOnInit() {
   }

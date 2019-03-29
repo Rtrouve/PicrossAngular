@@ -61,9 +61,6 @@
 #answer-module div{
     left:50%;
 }
-#win-message div{
-    left:50%;
-}
 #footer{
     display: flex;
 }
@@ -87,4 +84,25 @@ button.upper-bar{
 }
 .space-input{
     margin: 5px 8px;
+}
+.error{
+    background-image: url('../../assets/croix.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15px;
+    filter: grayscale(0%);
+}
+.empty{
+    background-image: url('../../assets/croix.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px;
+    filter: grayscale(100%);
+}
+.indic-result{
+    margin: 0 8px;
+}
+.grayed{
+    background-color:gray;
+    opacity: 0.5;
 }

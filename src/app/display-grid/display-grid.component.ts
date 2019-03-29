@@ -11,15 +11,26 @@ import { generate } from 'rxjs';
 })
 export class DisplayGridComponent implements OnInit {
   @Input() difficulty = 5;
+  MAX_ERROR = 3;
+
   grille = new Grille(this.difficulty);
   message = "";
+  filename = "grid"+SavingService.count+".json";
+
   command_answer = "Montrez la réponse";
   answerState = "answer-hidden";
+
   clicked = false;
-  filename = "grid"+SavingService.count+".json";
+  try = true;
+
+
+  nb_error =  Array<number>(this.MAX_ERROR).fill(0,0,this.MAX_ERROR);
+  current_error = 0;
 
   markIndRow: Array<boolean>;
   markIndCol:Array<boolean>;
+
+  
 
   constructor(private saving: SavingService) { }
 
@@ -33,6 +44,7 @@ export class DisplayGridComponent implements OnInit {
       for (let col = 0; col < this.grille.size; col++) {
         if(!this.grille.played[row][col].equals(this.grille.solution[row][col])){
           this.message = "Faux !";
+          
         }
       }      
     }
@@ -40,10 +52,18 @@ export class DisplayGridComponent implements OnInit {
       this.message = ''
     , 1000);
 
-    if(this.message = "Gagné !")
+    if(this.message == "Gagné !")
       return true
-    else
-      return false
+    else {
+      if(this.nb_error[this.MAX_ERROR-1] == 0) {
+        this.nb_error[this.current_error] = 1;
+        this.current_error++;
+      } else {
+        this.try = false;
+      }
+      return false;
+    }
+      
   }
 
   show_answer() {
@@ -56,6 +76,9 @@ export class DisplayGridComponent implements OnInit {
 
   generate() {
     this.grille = new Grille(this.difficulty);
+    this.nb_error =  Array<number>(this.MAX_ERROR).fill(0,0,this.MAX_ERROR);
+    this.current_error = 0;
+    this.try = true;
   }
 
   save(){

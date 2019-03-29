@@ -9,17 +9,24 @@ import { AppComponent } from './app.component';
 import { DisplayGridComponent } from './display-grid/display-grid.component';
 import { HeaderComponent } from './header/header.component';
 
+import { AppRoutingModule } from './app-routing.module';
+import { LevelComponent } from './level/level.component';
+import { ChronoComponent } from './chrono/chrono.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     DisplayGridComponent,
-    HeaderComponent
+    HeaderComponent,
+    LevelComponent,
+    ChronoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false })
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false }),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
