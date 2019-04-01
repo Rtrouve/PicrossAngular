@@ -1,9 +1,14 @@
+sudo: required
 addons:
   chrome: stable
 language: node_js
 node_js:
   - "9"
+before_script:
+  - npm install -g @angular/cli
 scripts:
   - npm install codecov -g
+  - ng build --prod --aot
+  - ng test
 after_success:
   - codecov
