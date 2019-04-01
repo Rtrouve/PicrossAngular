@@ -11,11 +11,11 @@ button.upper-bar{
     margin: 5px 8px;
 }
 
-
 .grayed{
     background-color:gray;
     opacity: 0.5;
     padding: 40px;
+    pointer-events:none;
 }
 
 #main-grid{

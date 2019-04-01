@@ -16,17 +16,17 @@
 .error{
     background-image: url('../../assets/croix.png');
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: 15px;
+    background-position: top;
+    background-size: 16px;
     filter: grayscale(0%);
 }
 .empty{
     background-image: url('../../assets/croix.png');
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top;
     background-size: 16px;
     filter: grayscale(100%);
 }
 .indic-result{
-    margin: 0 8px;
+    margin: 20px 8px;
 }

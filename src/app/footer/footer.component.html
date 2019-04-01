@@ -1,5 +1,5 @@
-<div id='footer'>
-    <div id='answer-module'>
+<div class="row" id='footer'>
+    <div class=col id='answer-module'>
       <button type=button class="btn btn-warning" (click)="show_answer()">{{ this.command_answer }}</button>
   
       <div class='grille {{answerState}}' >
@@ -13,7 +13,7 @@
       </div>
     </div>
   
-    <div id='win-message'>
+    <div id='win-message col'>
       <button [disabled]="!gridState.try" class="btn btn-primary" (click)="verif()">
         Vérification
       </button>

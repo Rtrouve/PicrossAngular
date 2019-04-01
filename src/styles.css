@@ -1,7 +1,7 @@
 .grille{
     padding-left: 15px;
     width: fit-content;
-    left: 50%;
+    display: inline-table;
     user-select: none;
 }
 .grille:hover{

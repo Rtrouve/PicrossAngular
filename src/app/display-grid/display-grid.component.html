@@ -1,14 +1,16 @@
-<div id="global-grid">
-  <div id="difficulty-choice">
-  <label id="size"> Taille : 
+<div id="global-grid" class="container">
+  <div id="difficulty-choice" class="row">
+    <div class="col"></div>
+  <label id="size" class="col"> Taille : 
 <!-- <input class="space-input" [(ngModel)]="this.difficulty" placeholder="difficulty"/> -->
-    <select class="form-control" [(ngModel)]="this.difficulty" >
+    <select class="form-control col" [(ngModel)]="this.difficulty" >
       <option *ngFor="let x of [5,10,15,20]" [ngValue]="x">{{x}}</option>
     </select>
   </label>
-  <button (click)="generate()" type="button" class="upper-bar btn btn-default btn-sm">
+  <button (click)="generate()" type="button" class="col upper-bar btn btn-light">
     <span class="glyphicon glyphicon-refresh"></span> Recharger
   </button>
+  <div class="col"></div>
 </div>
 
 <!--
@@ -23,7 +25,9 @@
   </button>
 </div>
 -->
-<div id="main-grid" id class='grille' [ngClass]="{'grayed' : !gridState.try }" (mouseup)="clicked=false" (mouseleave)="clicked=false">
+<div class="row">
+  <div class="col"></div>
+<div id="main-grid" class='grille col' [ngClass]="{'grayed' : !gridState.try }" (mouseup)="clicked=false" (mouseleave)="clicked=false">
     <div class='ind_col'>
       <div class='ind_col_case' *ngFor="let indCol of gridState.grille.ind_col; let c=index;">
         <div [ngClass]="gridState.grille.mark_ind_col[c] ? 'completed' : 'to-complete' " *ngFor="let ind of indCol">
@@ -44,6 +48,8 @@
       </td>
     </tr>
   </table>
+</div>
+<div class="col"></div>
 </div>
 
 <app-footer [gridState]=gridState></app-footer>
