@@ -9,7 +9,7 @@ export class Grille {
     ind_col: number[][] = new Array();
     mark_ind_col: boolean[] = new Array();
 
-    constructor(public size: number, sol?: Case[][], pla?: Case[][]){
+    constructor(public size: number=5, sol?: Case[][], pla?: Case[][]){
         for (let row = 0; row < this.size; row++) {
             this.solution[row] = new Array();
             this.played[row] = new Array();

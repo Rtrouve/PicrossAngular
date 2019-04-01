@@ -5,7 +5,7 @@ export class Case {
     static readonly FULL = 1;
     static readonly CROSS= 2;
 
-    constructor(private state: number){}
+    constructor(private state: number=0){}
 
     public getState(){
         return this.state;
