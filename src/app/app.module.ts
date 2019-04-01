@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LevelComponent } from './level/level.component';
 import { ChronoComponent } from './chrono/chrono.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ChronoComponent } from './chrono/chrono.component';
     DisplayGridComponent,
     HeaderComponent,
     LevelComponent,
-    ChronoComponent
+    ChronoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+.grille{
+    padding-left: 15px;
+    width: fit-content;
+    left: 50%;
+    user-select: none;
+}
+.grille:hover{
+    cursor:default;
+}
+.case{
+    padding: 7px;
+    display: table-cell;
+    text-align: center;
+    border: 0.1px solid gray;
+    border-collapse: collapse;
+    
+}
+.case-0{
+    background-color: white;
+    color: black
+}
+.case-1{
+    background-color: black;
+    color: white;
+}
+.case-2{
+    /*background-color: rgb(224, 90, 90);*/
+    background-image: url('./assets/croix.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px;
+    opacity: 0.6;
+}
+.case:hover{
+    box-shadow: inset 0 0 0 3px rgba(189, 241, 241, 0.85);
+}
+.row_p{
+    padding: 6px 0;
+    flex-direction: row;
+    display: table-row;
+    height:23px;
+    line-height:8px;
+}
+.ind_row{
+    display: inline;
+    padding-top: 15px;
+}
+.ind_col{
+    display: flex;
+    justify-content: right;
+}
+.ind_col_case{
+    padding: 1px 7.2px;
+}
+
+.border-right-5{
+    border-right: 1px solid black;
+}
+.border-bottom-5{
+    border-bottom: 1px solid black;
+}

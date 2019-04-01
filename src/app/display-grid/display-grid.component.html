@@ -1,4 +1,5 @@
-<div>
+<div id="global-grid">
+  <div id="difficulty-choice">
   <label id="size"> Taille : 
 <!-- <input class="space-input" [(ngModel)]="this.difficulty" placeholder="difficulty"/> -->
     <select class="form-control" [(ngModel)]="this.difficulty" >
@@ -22,10 +23,10 @@
   </button>
 </div>
 -->
-<div class='grille' (mouseup)="clicked=false" (mouseleave)="clicked=false">
+<div id="main-grid" id class='grille' [ngClass]="{'grayed' : !gridState.try }" (mouseup)="clicked=false" (mouseleave)="clicked=false">
     <div class='ind_col'>
-      <div class='ind_col_case' *ngFor="let indCol of grille.ind_col; let c=index;">
-        <div [ngClass]="grille.mark_ind_col[c] ? 'completed' : 'to-complete' " *ngFor="let ind of indCol">
+      <div class='ind_col_case' *ngFor="let indCol of gridState.grille.ind_col; let c=index;">
+        <div [ngClass]="gridState.grille.mark_ind_col[c] ? 'completed' : 'to-complete' " *ngFor="let ind of indCol">
           {{ind}}
         </div>
       </div>
@@ -33,8 +34,8 @@
   
   <!--<table (mouseout)="clicked=false" (mouseup)="clicked=false"> -->
   <table  >
-    <tr class='row_p' *ngFor="let picrossRow of grille.played; let i=index">
-      <td class='ind_row' [ngClass]="grille.mark_ind_row[i] ? 'completed' : 'to-complete'"  *ngFor="let ind of grille.ind_row[i];let j=index">
+    <tr class='row_p' *ngFor="let picrossRow of gridState.grille.played; let i=index">
+      <td class='ind_row' [ngClass]="gridState.grille.mark_ind_row[i] ? 'completed' : 'to-complete'"  *ngFor="let ind of gridState.grille.ind_row[i];let j=index">
           {{ind}}
       </td>
       
@@ -44,28 +45,6 @@
     </tr>
   </table>
 </div>
-<br/>
 
-<div id='footer'>
-  <div id='answer-module'>
-    <button type=button class="btn btn-warning" (click)="show_answer()">{{ this.command_answer }}</button>
-
-    <div class='grille {{answerState}}' [ngClass]="{'grayed' : !try }">
-      <table>
-        <tr class='row_p' *ngFor="let picrossRow of grille.solution; let i=index">
-          <td class="case {{ 'case-'+picrossCase.getState() }}" [ngClass]="{'border-right-5' : (j+1)%5 == 0, 'border-bottom-5' : (i+1)%5 == 0 }" *ngFor="let picrossCase of picrossRow; let j=index" >
-            &nbsp;&nbsp;
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
-
-  <div id='win-message'>
-    <button [disabled]="!try" class="btn btn-primary" (click)="verif()">
-      Vérification
-    </button>
-    <div class="" [ngClass]="message ==''? '' : message == 'Gagné !'? 'alert-success' : 'alert-danger'">{{message}}</div>
-  </div>
-  <div class="indic-result" *ngFor="let i of nb_error"  [ngClass]="i == 0 ? 'empty' : 'error'"></div>
+<app-footer [gridState]=gridState></app-footer>
 </div>

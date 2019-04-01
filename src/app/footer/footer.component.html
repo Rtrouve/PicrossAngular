@@ -1,0 +1,23 @@
+<div id='footer'>
+    <div id='answer-module'>
+      <button type=button class="btn btn-warning" (click)="show_answer()">{{ this.command_answer }}</button>
+  
+      <div class='grille {{answerState}}' >
+        <table>
+          <tr class='row_p' *ngFor="let picrossRow of gridState.grille.solution; let i=index">
+            <td class="case {{ 'case-'+picrossCase.getState() }}" [ngClass]="{'border-right-5' : (j+1)%5 == 0, 'border-bottom-5' : (i+1)%5 == 0 }" *ngFor="let picrossCase of picrossRow; let j=index" >
+              &nbsp;&nbsp;
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  
+    <div id='win-message'>
+      <button [disabled]="!gridState.try" class="btn btn-primary" (click)="verif()">
+        Vérification
+      </button>
+      <div class="" [ngClass]="message ==''? '' : message == 'Gagné !'? 'alert-success' : 'alert-danger'">{{message}}</div>
+    </div>
+    <div class="indic-result" *ngFor="let i of gridState.nb_error"  [ngClass]="i == 0 ? 'empty' : 'error'"></div>
+  </div>
