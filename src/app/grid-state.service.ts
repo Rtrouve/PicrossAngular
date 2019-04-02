@@ -19,7 +19,7 @@ export class GridStateService {
   }
 
 
-  generateGrid(size:number){
+  generateGrid(size:number = 5){
     this.grille = new Grille(size);
     this.reset();
   }

@@ -9,28 +9,7 @@
     </div>
 
     <div class="row" id="playing-row">
-        <div id="main-grid" class='grille' (mouseup)="clicked=false" (mouseleave)="clicked=false">
-            <div class='ind_col'>
-              <div class='ind_col_case' *ngFor="let indCol of gridState.grille.ind_col; let c=index;">
-                <div [ngClass]="gridState.grille.mark_ind_col[c] ? 'completed' : 'to-complete' " *ngFor="let ind of indCol">
-                  {{ind}}
-                </div>
-              </div>
-            </div>
-          <table>
-            <tr class='row_p' *ngFor="let picrossRow of gridState.grille.played; let i=index">
-              <td class='ind_row' [ngClass]="gridState.grille.mark_ind_row[i] ? 'completed' : 'to-complete'"  *ngFor="let ind of gridState.grille.ind_row[i];let j=index">
-                  {{ind}}
-              </td>
-              
-              <td class="case {{ 'case-'+picrossCase.getState() }}" [ngClass]="{'border-right-5' : (j+1)%5 == 0, 'border-bottom-5' : (i+1)%5 == 0 }" *ngFor="let picrossCase of picrossRow; let j=index" (mouseover)="clicked && picrossCase.changeState();clicked && changeIndice(i,j)" (mousedown)="mouseDown($event, i, j, picrossCase)"  (contextmenu)="clicked=false;picrossCase.markState();changeIndice(i,j)">
-                &nbsp;&nbsp;
-              </td>
-            </tr>
-          </table>
-        </div>
-    </div>
-
+        <app-display-grid [gridState]="gridState" ></app-display-grid>
     <div id="disappear-row">
 
     </div>

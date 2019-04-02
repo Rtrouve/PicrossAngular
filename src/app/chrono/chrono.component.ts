@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GridStateService } from '../grid-state.service';
 
 @Component({
   selector: 'app-chrono',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChronoComponent implements OnInit {
 
-  constructor() { }
+  constructor(public gridState: GridStateService) { }
 
   ngOnInit() {
+    this.gridState.generateGrid(5);
   }
 
 }
