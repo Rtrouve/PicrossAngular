@@ -4,23 +4,10 @@
 .to-complete{
     color: black;
 }
-button.upper-bar{
-    margin : 4px 10px;
-}
-.space-input{
-    margin: 5px 8px;
-}
 
 .grayed{
     background-color:gray;
     opacity: 0.5;
     padding: 40px;
     pointer-events:none;
-}
-
-#main-grid{
-
-}
-#global-grid{
-
 }

@@ -11,30 +11,16 @@ import { GridStateService } from '../grid-state.service';
   styleUrls: ['./display-grid.component.css']
 })
 export class DisplayGridComponent implements OnInit {
-  @Input() difficulty = 5;
-
-  filename = "grid"+SavingService.count+".json";
+  @Input() gridState: GridStateService;
   clicked = false;
 
   markIndRow: Array<boolean>;
   markIndCol: Array<boolean>;
 
-  constructor(private saving: SavingService, public gridState: GridStateService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.generate();
-  }
-
-  generate() {
-    this.gridState.generateGrid(this.difficulty);
-  }
-
-  save(){
-    this.saving.save(this.gridState.grille.solution, this.gridState.grille.played, this.filename);
-  }
-
-  open(){
-    this.gridState.grille = this.saving.load(this.filename);
+    this.gridState.generateGrid(this.gridState.difficulty);
   }
 
   changeIndice(i:number, j:number){
@@ -103,8 +89,10 @@ export class DisplayGridComponent implements OnInit {
     let sumRow =  this.gridState.grille.mark_ind_row.reduce(this.boolAndArray);
     
     if(sumCol && sumRow) {
-      console.log('Vérifiez le résultat')
-      /*
+      /* Add method in grid service > what to do when the grid is completed 
+         bool in constructor to choose behaviour (pass for time trial / color for random|level) ?
+
+         TODO
       if(this.gridState.verifState()) {
         
         // Generate New Grid

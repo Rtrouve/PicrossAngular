@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { LevelComponent } from './level/level.component';
 import { ChronoComponent } from './chrono/chrono.component';
 import { FooterComponent } from './footer/footer.component';
+import { DifficultyChoiceComponent } from './difficulty-choice/difficulty-choice.component';
+import { RandomComponent } from './random/random.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent,
     LevelComponent,
     ChronoComponent,
-    FooterComponent
+    FooterComponent,
+    DifficultyChoiceComponent,
+    RandomComponent
   ],
   imports: [
     BrowserModule,

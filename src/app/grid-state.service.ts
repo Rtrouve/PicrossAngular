@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { Grille } from './grille';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GridStateService {
+  @Input() difficulty:number = 5;
   grille:Grille;
 
   MAX_ERROR = 3;
