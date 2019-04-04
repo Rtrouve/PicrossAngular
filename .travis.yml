@@ -25,7 +25,7 @@ before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - npm install -g @angular/cli
-  
+
 scripts:
   - npm install codecov -g
   - ng lint
@@ -34,4 +34,4 @@ scripts:
   - npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
 
 after_success:
-- codecov
+  - codecov
