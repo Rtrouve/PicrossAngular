@@ -28,7 +28,7 @@ before_script:
 
 scripts:
   - npm install codecov -g
-  - ng run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+  - ng test --watch=false
 
 after_success:
   - codecov
