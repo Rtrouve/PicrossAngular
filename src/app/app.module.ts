@@ -1,10 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from'@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
-import { InMemoryDataService }  from './in-memory-data.service';
 import { AppComponent } from './app.component';
 import { DisplayGridComponent } from './display-grid/display-grid.component';
 import { HeaderComponent } from './header/header.component';
@@ -30,8 +27,6 @@ import { RandomComponent } from './random/random.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false }),
     AppRoutingModule
   ],
   providers: [],

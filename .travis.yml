@@ -1,25 +1,37 @@
 dist: trusty
+sudo: false
+
 addons:
   apt:
     sources:
       - google-chrome
     packages:
       - google-chrome-stable
+
 language: node_js
 node_js:
   - "10.4.1"
+
 branches:
   only:
     - master
+
+cache:
+  directories:
+    - ./node_modules
+
 before_script:
   - export CHROME_BIN=/usr/bin/google-chrome
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - npm install -g @angular/cli
+  
 scripts:
   - npm install codecov -g
   - ng lint
   - ng build --prod --aot
-  - ng test
+  - ng run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+  - npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+
 after_success:
 - codecov

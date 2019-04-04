@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Grille } from '../grille';
 import { Case } from '../case';
-import { SavingService } from '../saving.service';
 import { GridStateService } from '../grid-state.service';
 
 @Component({
