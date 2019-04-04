@@ -20,101 +20,101 @@ export class DisplayGridComponent implements OnInit {
   ngOnInit() {
   }
 
-  changeIndice(i:number, j:number){
-    let indices_row = this.gridState.grille.ind_row[i];
-    let indices_col = this.gridState.grille.ind_col[j];
+  changeIndice(i: number, j: number) {
+    const indicesRow = this.gridState.grille.indRow[i];
+    const indicesCol = this.gridState.grille.indCol[j];
 
     /*vérifier la ligne*/
     let current = 0;
-    let line_verif = true;
-    for (let element of indices_row) {
+    let lineVerif = true;
+    for (const element of indicesRow) {
       let compt = element;
 
-      while (current < this.gridState.grille.size && !(this.gridState.grille.played[i][current].getState() == Case.FULL)){
+      while (current < this.gridState.grille.size && !(this.gridState.grille.played[i][current].getState() === Case.FULL)) {
         current++;
       }
-      while (current < this.gridState.grille.size && this.gridState.grille.played[i][current].getState() == Case.FULL) {
+      while (current < this.gridState.grille.size && this.gridState.grille.played[i][current].getState() === Case.FULL) {
         compt--;
         current++;
       }
-      if(compt!=0) {
-        line_verif=false;
+      if (compt !== 0) {
+        lineVerif = false;
       }
     }
 
-    while(current < this.gridState.grille.size){
-      line_verif = line_verif && !(this.gridState.grille.played[i][current].getState() == Case.FULL); 
+    while (current < this.gridState.grille.size) {
+      lineVerif = lineVerif && !(this.gridState.grille.played[i][current].getState() === Case.FULL);
       current++;
     }
 
-    if(line_verif){
-      this.gridState.grille.mark_ind_row[i] = true;
+    if (lineVerif) {
+      this.gridState.grille.markIndRow[i] = true;
     } else {
-      this.gridState.grille.mark_ind_row[i] = false;
+      this.gridState.grille.markIndRow[i] = false;
     }
 
     /*vérifier la colonne*/
     current = 0;
-    let col_verif = true;
-    for (let element of indices_col) {
+    let colVerif = true;
+    for (const element of indicesCol) {
       let compt = element;
 
-      while (current < this.gridState.grille.size && !(this.gridState.grille.played[current][j].getState() == Case.FULL)){
+      while (current < this.gridState.grille.size && !(this.gridState.grille.played[current][j].getState() === Case.FULL)) {
         current++;
       }
-      while (current < this.gridState.grille.size && this.gridState.grille.played[current][j].getState() == Case.FULL) {
+      while (current < this.gridState.grille.size && this.gridState.grille.played[current][j].getState() === Case.FULL) {
         compt--;
         current++;
       }
-      if(compt!=0) {
-        col_verif=false;
+      if (compt !== 0) {
+        colVerif = false;
       }
     }
 
-    while(current < this.gridState.grille.size){
-      col_verif = col_verif && !(this.gridState.grille.played[current][j].getState() == Case.FULL); 
+    while (current < this.gridState.grille.size) {
+      colVerif = colVerif && !(this.gridState.grille.played[current][j].getState() === Case.FULL);
       current++;
     }
 
-    if(col_verif){
-      this.gridState.grille.mark_ind_col[j] = true;
+    if (colVerif) {
+      this.gridState.grille.markIndCol[j] = true;
     } else {
-      this.gridState.grille.mark_ind_col[j] = false;
+      this.gridState.grille.markIndCol[j] = false;
     }
 
-    let sumCol =  this.gridState.grille.mark_ind_col.reduce(this.boolAndArray);
-    let sumRow =  this.gridState.grille.mark_ind_row.reduce(this.boolAndArray);
-    
-    if(sumCol && sumRow) {
-      if(this.gridState.verifState){
+    const sumCol =  this.gridState.grille.markIndCol.reduce(this.boolAndArray);
+    const sumRow =  this.gridState.grille.markIndRow.reduce(this.boolAndArray);
+
+    if (sumCol && sumRow) {
+      if (this.gridState.verifState) {
         this.gridState.endChange();
       }
-      /* Add method in grid service > what to do when the grid is completed 
+      /* Add method in grid service > what to do when the grid is completed
          bool in constructor to choose behaviour (pass for time trial / color for random|level) ?
 
          TODO
       if(this.gridState.verifState()) {
-        
+
         // Generate New Grid
         setTimeout(() =>
         this.generate()
         , 1000);
-        
+
       }
       */
     }
-      return false;
+    return false;
   }
 
-  boolAndArray(accumulator, a){
+  boolAndArray(accumulator, a) {
     return accumulator && a;
   }
 
-  mouseDown(event, i, j, picrossCase){
-    if(event.which == 1) {
-      this.clicked=true;
+  mouseDown(event, i: number, j: number, picrossCase: Case) {
+    if (event.which === 1) {
+      this.clicked = true;
       picrossCase.changeState();
-      this.changeIndice(i,j);
+      this.changeIndice(i, j);
     }
   }
 

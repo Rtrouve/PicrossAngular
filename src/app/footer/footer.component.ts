@@ -7,11 +7,11 @@ import { GridStateService } from '../grid-state.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  @Input() gridState:GridStateService;
-  message = "";
-  
-  answerState = "answer-hidden";
-  command_answer = "Montrez la réponse";
+  @Input() gridState: GridStateService;
+  message = '';
+
+  answerState = 'answer-hidden';
+  commandAnswer = 'Montrez la réponse';
 
   constructor() { }
 
@@ -19,25 +19,27 @@ export class FooterComponent implements OnInit {
   }
 
   verif() {
-    let win = this.gridState.verifState();
-    if (win) 
-      this.message = "Gagné !";
-    else 
-      this.message = "Faux !";
+    const win = this.gridState.verifState();
+
+    if (win) {
+      this.message = 'Gagné !';
+    } else {
+      this.message = 'Faux !';
+    }
 
     setTimeout(() =>
       this.message = ''
     , 1000);
 
-    return win;      
+    return win; 
   }
 
   show_answer() {
-    if(this.answerState == 'answer-hidden'){
+    if (this.answerState === 'answer-hidden') {
       this.answerState = 'answer-shown';
     } else {
       this.answerState = 'answer-hidden';
-    } 
+    }
   }
 
 }

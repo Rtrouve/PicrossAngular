@@ -12,14 +12,12 @@ describe('DifficultyChoiceComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DifficultyChoiceComponent ],
-      imports:[
+      imports: [
         FormsModule
       ],
       providers: [ GridStateService ]
     })
     .compileComponents();
-    
-
   }));
 
   beforeEach(() => {

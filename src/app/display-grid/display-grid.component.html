@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col"></div>
 <div id="main-grid" class='grille col' [ngClass]="{'grayed' : !gridState.try }" (mouseup)="clicked=false" (mouseleave)="clicked=false">
-    <div class='ind_col'>
-      <div class='ind_col_case' *ngFor="let indCol of gridState.grille.ind_col; let c=index;">
-        <div [ngClass]="gridState.grille.mark_ind_col[c] ? 'completed' : 'to-complete' " *ngFor="let ind of indCol">
+    <div class='indCol'>
+      <div class='indCol_case' *ngFor="let indCol of gridState.grille.indCol; let c=index;">
+        <div [ngClass]="gridState.grille.markIndCol[c] ? 'completed' : 'to-complete' " *ngFor="let ind of indCol">
           {{ind}}
         </div>
       </div>
@@ -12,7 +12,7 @@
   <!--<table (mouseout)="clicked=false" (mouseup)="clicked=false"> -->
   <table  >
     <tr class='row_p' *ngFor="let picrossRow of gridState.grille.played; let i=index">
-      <td class='ind_row' [ngClass]="gridState.grille.mark_ind_row[i] ? 'completed' : 'to-complete'"  *ngFor="let ind of gridState.grille.ind_row[i];let j=index">
+      <td class='indRow' [ngClass]="gridState.grille.markIndRow[i] ? 'completed' : 'to-complete'"  *ngFor="let ind of gridState.grille.indRow[i];let j=index">
           {{ind}}
       </td>
       

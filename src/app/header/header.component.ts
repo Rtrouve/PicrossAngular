@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   numLevel = 2;
-  numbers: Array<Number>;
+  numbers: Array<number>;
   constructor() {
     this.numbers = Array(this.numLevel);
    }

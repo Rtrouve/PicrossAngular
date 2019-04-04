@@ -4,69 +4,67 @@ export class Grille {
     solution: Case[][] = new Array();
     played: Case[][] = new Array();
 
-    ind_row: number[][] = new Array();
-    mark_ind_row: boolean[] = new Array();
-    ind_col: number[][] = new Array();
-    mark_ind_col: boolean[] = new Array();
+    indRow: number[][] = new Array();
+    markIndRow: boolean[] = new Array();
+    indCol: number[][] = new Array();
+    markIndCol: boolean[] = new Array();
 
-    constructor(public size: number=5, sol?: Case[][], pla?: Case[][]){
+    constructor(public size: number= 5, sol?: Case[][], pla?: Case[][]) {
         for (let row = 0; row < this.size; row++) {
             this.solution[row] = new Array();
             this.played[row] = new Array();
             for (let col = 0; col < this.size; col++) {
-                this.solution[row][col] = new Case(Math.floor(Math.random()*2));
-                this.played[row][col] = new Case(0);  
+                this.solution[row][col] = new Case(Math.floor(Math.random() * 2));
+                this.played[row][col] = new Case(0); 
             }
-            
+
         }
 
-        if(sol){
+        if (sol) {
             this.solution = sol;
         }
-        if(pla){
+        if (pla) {
             this.played = pla;
         }
-        
+
         for (let row = 0; row < this.size; row++) {
             let sumTempRow = 0;
-            let sumTempCol = 0; 
-            this.ind_col[row] = new Array();
-            this.ind_row[row] = new Array();
-            this.mark_ind_row[row] = false;
-            this.mark_ind_col[row] = false;
+            let sumTempCol = 0;
+            this.indCol[row] = new Array();
+            this.indRow[row] = new Array();
+            this.markIndRow[row] = false;
+            this.markIndCol[row] = false;
             for (let col = 0; col < this.size; col++) {
-                if(this.solution[row][col].getState() == 0){
-                    if(sumTempRow!=0) {
-                        this.ind_row[row].push(sumTempRow);
+                if (this.solution[row][col].getState() === 0) {
+                    if (sumTempRow !== 0) {
+                        this.indRow[row].push(sumTempRow);
                     }
                     sumTempRow = 0;
                 } else {
                     sumTempRow++;
                 }
-                if(this.solution[col][row].getState() == 0){
-                    if(sumTempCol!=0) {
-                        this.ind_col[row].push(sumTempCol);
+                if (this.solution[col][row].getState() === 0) {
+                    if (sumTempCol !== 0) {
+                        this.indCol[row].push(sumTempCol);
                     }
-                    sumTempCol=0;
+                    sumTempCol = 0;
                 } else {
                     sumTempCol++;
                 }
             }
-            if(sumTempRow!=0) {
-                this.ind_row[row].push(sumTempRow);
+            if (sumTempRow !== 0) {
+                this.indRow[row].push(sumTempRow);
             }
-            if(sumTempCol!=0) {
-                this.ind_col[row].push(sumTempCol);
+            if (sumTempCol !== 0) {
+                this.indCol[row].push(sumTempCol);
             }
-            if(this.ind_row[row].length == 0){
-                this.ind_row[row].push(0);
+            if (this.indRow[row].length === 0) {
+                this.indRow[row].push(0);
             }
-            if(this.ind_col[row].length == 0){
-                this.ind_col[row].push(0);
+            if (this.indCol[row].length === 0) {
+                this.indCol[row].push(0);
             }
         }
 
     }
-    
-
 }

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router'; 
+import { RouterModule, Routes } from '@angular/router';
 import { LevelComponent } from './level/level.component';
 import { ChronoComponent } from './chrono/chrono.component';
 import { RandomComponent } from './random/random.component';

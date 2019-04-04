@@ -1,6 +1,6 @@
 <div class="row" id='footer'>
     <div class=col id='answer-module'>
-      <button type=button class="btn btn-warning" (click)="show_answer()">{{ this.command_answer }}</button>
+      <button type=button class="btn btn-warning" (click)="show_answer()">{{ this.commandAnswer }}</button>
   
       <div class='grille {{answerState}}' >
         <table>
@@ -19,5 +19,5 @@
       </button>
       <div class="" [ngClass]="message ==''? '' : message == 'Gagné !'? 'alert-success' : 'alert-danger'">{{message}}</div>
     </div>
-    <div class="indic-result" *ngFor="let i of gridState.nb_error"  [ngClass]="i == 0 ? 'empty' : 'error'"></div>
+    <div class="indic-result" *ngFor="let i of gridState.nbError"  [ngClass]="i == 0 ? 'empty' : 'error'"></div>
   </div>

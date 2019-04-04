@@ -7,7 +7,7 @@ import { GridStateService } from '../grid-state.service';
   styleUrls: ['./difficulty-choice.component.css']
 })
 export class DifficultyChoiceComponent implements OnInit {
-  @Input() gridState:GridStateService;
+  @Input() gridState: GridStateService;
 
   constructor() { }
 

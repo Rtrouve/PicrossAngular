@@ -12,12 +12,12 @@ describe('RandomComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
-        DifficultyChoiceComponent, 
-        DisplayGridComponent, 
-        FooterComponent, 
-        RandomComponent ], 
-      imports:[
+      declarations: [
+        DifficultyChoiceComponent,
+        DisplayGridComponent,
+        FooterComponent,
+        RandomComponent ],
+      imports: [
         FormsModule
       ]
     })

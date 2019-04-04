@@ -41,15 +41,15 @@
     height:23px;
     line-height:8px;
 }
-.ind_row{
+.indRow{
     display: inline;
     padding-top: 15px;
 }
-.ind_col{
+.indCol{
     display: flex;
     justify-content: right;
 }
-.ind_col_case{
+.indCol_case{
     padding: 1px 7.2px;
 }
 

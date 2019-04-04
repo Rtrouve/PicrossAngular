@@ -11,7 +11,7 @@ describe('AppComponent', () => {
         AppComponent,
         HeaderComponent
         ],
-        imports:[
+        imports: [
           RouterTestingModule
         ]
     }).compileComponents();

@@ -5,52 +5,50 @@ import { Grille } from './grille';
   providedIn: 'root'
 })
 export class GridStateService {
-  @Input() difficulty:number = 5;
-  grille:Grille;
+  @Input() difficulty = 5;
+  grille: Grille;
 
   MAX_ERROR = 3;
-  nb_error =  Array<number>(this.MAX_ERROR).fill(0,0,this.MAX_ERROR);
-  current_error = 0;
+  nbError =  Array<number>(this.MAX_ERROR).fill(0, 0, this.MAX_ERROR);
+  currentError = 0;
 
-  try:boolean = true;
+  try = true;
 
   // Time trial var
-  endChoice:boolean;
-  countResolve:number=0;
+  endChoice: boolean;
+  countResolve = 0;
 
   constructor() {
-
   }
 
-
-  generateGrid(size:number = 5, endingChrono:boolean = false){
+  generateGrid(size: number = 5, endingChrono: boolean = false) {
     this.grille = new Grille(size);
     this.reset();
     this.endChoice = endingChrono;
   }
 
-  reset(){
-    this.nb_error =  Array<number>(this.MAX_ERROR).fill(0,0,this.MAX_ERROR);
-    this.current_error = 0;
+  reset() {
+    this.nbError =  Array<number>(this.MAX_ERROR).fill(0, 0, this.MAX_ERROR);
+    this.currentError = 0;
     this.try = true;
   }
 
-  verifState(){
+  verifState() {
     let victory = true;
     for (let row = 0; row < this.grille.size; row++) {
       for (let col = 0; col < this.grille.size; col++) {
-        if(!this.grille.played[row][col].equals(this.grille.solution[row][col])){
-          victory = false;   
+        if (!this.grille.played[row][col].equals(this.grille.solution[row][col])) {
+          victory = false;
         }
-      }      
+      }
     }
-    
-    if(!victory) {
-      if(this.nb_error[this.MAX_ERROR-1] == 0) {
-        this.nb_error[this.current_error] = 1;
-        this.current_error++;
-      } 
-      if(this.nb_error[this.MAX_ERROR-1] == 1) {
+  
+    if (!victory) {
+      if (this.nbError[this.MAX_ERROR-1] === 0) {
+        this.nbError[this.currentError] = 1;
+        this.currentError++;
+      }
+      if (this.nbError[this.MAX_ERROR-1] === 1) {
         this.try = false;
       }
     }
@@ -58,8 +56,8 @@ export class GridStateService {
     return victory;
   }
 
-  endChange(){
-    if(this.endChoice){
+  endChange() {
+    if (this.endChoice) {
       this.countResolve++;
       
       setTimeout(() =>
@@ -68,6 +66,4 @@ export class GridStateService {
       this.reset();
     }
   }
-
-
 }

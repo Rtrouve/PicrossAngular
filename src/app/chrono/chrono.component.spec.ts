@@ -10,11 +10,11 @@ describe('ChronoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
+      declarations: [
         ChronoComponent,
         DisplayGridComponent
       ],
-      imports:[
+      imports: [
         FormsModule
       ]
     })
