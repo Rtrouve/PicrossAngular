@@ -1,16 +1,16 @@
 <div class='container'>
   <div id="difficulty-choice" class="row">
     <div class="col-3"></div>
-    <label id="size" class="col-1"> Taille : </label>
+    <label id="size" class="col"> Taille : </label>
     <!-- <input class="space-input" [(ngModel)]="this.difficulty" placeholder="difficulty"/> -->
-      <select class="form-control col-2" [(ngModel)]="this.gridState.difficulty" >
+      <select class="col-2" [(ngModel)]="this.gridState.difficulty" >
         <option *ngFor="let x of [5,10,15,20]" [ngValue]="x">{{x}}</option>
       </select>
     
     <button (click)="generate()" type="button" class="col-2 upper-bar btn btn-light">
       <span class="glyphicon glyphicon-refresh"></span> Recharger
     </button>
-    <div class="col-2"></div>
+    <div class="col-3"></div>
   </div>
 
 </div>

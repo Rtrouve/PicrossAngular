@@ -7,11 +7,43 @@ import { GridStateService } from '../grid-state.service';
   styleUrls: ['./chrono.component.css']
 })
 export class ChronoComponent implements OnInit {
+  TIMEPERIOD = 100;
+
+  scoreMax:number = 0;
+
+  remainingTime: number = this.TIMEPERIOD;
+  interval;
+  running:boolean = false;
 
   constructor(public gridState: GridStateService) { }
 
   ngOnInit() {
-    this.gridState.generateGrid(5);
+    this.gridState.generateGrid(5,true);
+  }
+
+  startTimer() {
+    this.gridState.generateGrid(5,true);
+    this.interval = setInterval(()=> {
+      if(this.remainingTime > 0) {
+        this.remainingTime--;
+        if(this.scoreMax < this.gridState.countResolve)
+          this.scoreMax = this.gridState.countResolve;
+      } else {
+        this.stopTimeTrial();
+      }
+    },1000);
+    this.running = true;
+  }
+
+  pauseTimer() {
+    clearInterval(this.interval);
+    this.remainingTime = this.TIMEPERIOD;
+  }
+
+  stopTimeTrial(){
+    this.running = false;
+    this.pauseTimer();
+    this.gridState.countResolve = 0;
   }
 
 }

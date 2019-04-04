@@ -1,18 +1,28 @@
 <div class="container">
-  <div class="col-4" id="menu">
+  <br/>
+  <div class="row">
+    <div class="col-4" id="menu">
+      <br/>
+      <label class="row">Score Max : {{ scoreMax }}</label>
+      <br/>
+      <label class="row">Solved : {{ gridState.countResolve }}</label>
+      <br/>
+      <label class="row">Remaining Time :&nbsp;<strong> {{ remainingTime }}</strong></label>
+      <br/>
+      <div class="row"><button [disabled]="running" (click)="startTimer()" type="button" class="col btn btn-primary" >Start</button><button (click)="stopTimeTrial()" type="button" class="col btn btn-warning" >Reset</button></div>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-6" id="board">
+      <div id="incoming-row">
 
-  </div>
+      </div>
 
-  <div class="col-8" id="board">
-    <div id="incoming-row">
+      <div  class="row" id="playing-row">
+          <app-display-grid [ngClass]="{'unplayable' : !running}" [gridState]="gridState" ></app-display-grid>
+      <div id="disappear-row">
+
+      </div>
 
     </div>
-
-    <div class="row" id="playing-row">
-        <app-display-grid [gridState]="gridState" ></app-display-grid>
-    <div id="disappear-row">
-
-    </div>
-
   </div>
 </div>

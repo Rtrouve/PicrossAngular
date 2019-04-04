@@ -20,7 +20,6 @@ export class DisplayGridComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.gridState.generateGrid(this.gridState.difficulty);
   }
 
   changeIndice(i:number, j:number){
@@ -89,6 +88,9 @@ export class DisplayGridComponent implements OnInit {
     let sumRow =  this.gridState.grille.mark_ind_row.reduce(this.boolAndArray);
     
     if(sumCol && sumRow) {
+      if(this.gridState.verifState){
+        this.gridState.endChange();
+      }
       /* Add method in grid service > what to do when the grid is completed 
          bool in constructor to choose behaviour (pass for time trial / color for random|level) ?
 

@@ -14,14 +14,19 @@ export class GridStateService {
 
   try:boolean = true;
 
+  // Time trial var
+  endChoice:boolean;
+  countResolve:number=0;
+
   constructor() {
 
   }
 
 
-  generateGrid(size:number = 5){
+  generateGrid(size:number = 5, endingChrono:boolean = false){
     this.grille = new Grille(size);
     this.reset();
+    this.endChoice = endingChrono;
   }
 
   reset(){
@@ -51,6 +56,17 @@ export class GridStateService {
     }
 
     return victory;
+  }
+
+  endChange(){
+    if(this.endChoice){
+      this.countResolve++;
+      
+      setTimeout(() =>
+      this.grille = new Grille(5)
+        , 300);
+      this.reset();
+    }
   }
 
 
