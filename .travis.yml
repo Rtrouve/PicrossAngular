@@ -7,7 +7,10 @@ addons:
       - google-chrome-stable
 language: node_js
 node_js:
-  - "9"
+  - "10.4.1"
+branches:
+  only:
+    - master
 before_script:
   - export CHROME_BIN=/usr/bin/google-chrome
   - export DISPLAY=:99.0
@@ -15,7 +18,8 @@ before_script:
   - npm install -g @angular/cli
 scripts:
   - npm install codecov -g
+  - ng lint
   - ng build --prod --aot
   - ng test
 after_success:
-  - codecov
+- codecov
