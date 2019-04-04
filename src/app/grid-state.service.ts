@@ -59,7 +59,7 @@ export class GridStateService {
   endChange() {
     if (this.endChoice) {
       this.countResolve++;
- 
+
       setTimeout(() =>
       this.grille = new Grille(5)
         , 300);
