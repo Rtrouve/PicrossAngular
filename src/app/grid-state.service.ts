@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { Grille } from './grille';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GridStateService {
+  @Input() difficulty:number = 5;
   grille:Grille;
 
   MAX_ERROR = 3;
@@ -13,14 +14,19 @@ export class GridStateService {
 
   try:boolean = true;
 
+  // Time trial var
+  endChoice:boolean;
+  countResolve:number=0;
+
   constructor() {
 
   }
 
 
-  generateGrid(size:number){
+  generateGrid(size:number = 5, endingChrono:boolean = false){
     this.grille = new Grille(size);
     this.reset();
+    this.endChoice = endingChrono;
   }
 
   reset(){
@@ -50,6 +56,17 @@ export class GridStateService {
     }
 
     return victory;
+  }
+
+  endChange(){
+    if(this.endChoice){
+      this.countResolve++;
+      
+      setTimeout(() =>
+      this.grille = new Grille(5)
+        , 300);
+      this.reset();
+    }
   }
 
 

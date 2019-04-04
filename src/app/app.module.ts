@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from'@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { LevelComponent } from './level/level.component';
 import { ChronoComponent } from './chrono/chrono.component';
 import { FooterComponent } from './footer/footer.component';
+import { DifficultyChoiceComponent } from './difficulty-choice/difficulty-choice.component';
+import { RandomComponent } from './random/random.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent,
     LevelComponent,
     ChronoComponent,
-    FooterComponent
+    FooterComponent,
+    DifficultyChoiceComponent,
+    RandomComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +35,10 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ 
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA  
+  ]
 })
 export class AppModule { }
