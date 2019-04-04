@@ -15,7 +15,7 @@ export class Grille {
             this.played[row] = new Array();
             for (let col = 0; col < this.size; col++) {
                 this.solution[row][col] = new Case(Math.floor(Math.random() * 2));
-                this.played[row][col] = new Case(0); 
+                this.played[row][col] = new Case(0);
             }
 
         }

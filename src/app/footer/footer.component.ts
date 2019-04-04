@@ -31,7 +31,7 @@ export class FooterComponent implements OnInit {
       this.message = ''
     , 1000);
 
-    return win; 
+    return win;
   }
 
   show_answer() {

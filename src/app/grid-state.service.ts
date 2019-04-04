@@ -42,13 +42,13 @@ export class GridStateService {
         }
       }
     }
-  
+
     if (!victory) {
-      if (this.nbError[this.MAX_ERROR-1] === 0) {
+      if (this.nbError[this.MAX_ERROR - 1] === 0) {
         this.nbError[this.currentError] = 1;
         this.currentError++;
       }
-      if (this.nbError[this.MAX_ERROR-1] === 1) {
+      if (this.nbError[this.MAX_ERROR - 1] === 1) {
         this.try = false;
       }
     }
@@ -59,7 +59,7 @@ export class GridStateService {
   endChange() {
     if (this.endChoice) {
       this.countResolve++;
-      
+ 
       setTimeout(() =>
       this.grille = new Grille(5)
         , 300);

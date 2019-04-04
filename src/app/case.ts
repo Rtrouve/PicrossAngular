@@ -35,8 +35,7 @@ export class Case {
         }
         if (toCompare.getState() === Case.FULL && this.state === Case.FULL) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
