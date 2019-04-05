@@ -109,6 +109,8 @@ export class DisplayGridComponent implements OnInit {
 
       }
       */
+    } else {
+      this.gridState.finish = false;
     }
     return false;
   }

@@ -12,6 +12,9 @@
         </table>
       </div>
     </div>
+    <div class="col">
+      <label class="h3" *ngIf="gridState.finish">Bravo !</label>
+    </div>
   
     <div id='win-message col'>
       <button [disabled]="!gridState.try" class="btn btn-primary" (click)="verif()">

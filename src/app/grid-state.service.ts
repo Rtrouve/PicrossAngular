@@ -14,6 +14,7 @@ export class GridStateService {
   currentError = 0;
 
   try = true;
+  finish = false;
 
   // Time trial var
   endChoice: boolean;
@@ -32,6 +33,7 @@ export class GridStateService {
     this.nbError =  Array<number>(this.MAX_ERROR).fill(0, 0, this.MAX_ERROR);
     this.currentError = 0;
     this.try = true;
+    this.finish = false;
   }
 
   verifProgress() {
@@ -78,6 +80,8 @@ export class GridStateService {
       this.grille = new Grille(5)
         , 300);
       this.reset();
+    } else {
+      this.finish = true;
     }
   }
 }

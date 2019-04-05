@@ -16,8 +16,13 @@ export class Grille {
             this.solution[row] = new Array();
             this.played[row] = new Array();
             for (let col = 0; col < this.size; col++) {
-                this.solution[row][col] = new Case(Math.floor(Math.random() * 2));
-                this.played[row][col] = new Case(0);
+                const stateTemp = Math.floor(Math.random() * 2);
+                if(stateTemp === 0) {
+                    this.solution[row][col] = new Case(stateTemp, 'white');
+                } else {
+                    this.solution[row][col] = new Case(stateTemp);
+                }
+                this.played[row][col] = new Case(0, this.solution[row][col].getColor());
             }
 
         }

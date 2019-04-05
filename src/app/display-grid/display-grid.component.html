@@ -17,7 +17,7 @@
       <td class='indRow' [ngClass]="{'indiceVisual' : visualIndiceRow[i]}"  *ngIf="gridState.grille.indRow[i].length < gridState.grille.maxIndRow">
         &nbsp;&nbsp;
       </td>
-      <td class="case {{ 'case-'+picrossCase.getState() }}" [ngClass]="{'border-right-5' : (j+1)%5 == 0, 'border-bottom-5' : (i+1)%5 == 0 }" *ngFor="let picrossCase of picrossRow; let j=index" (mouseenter)="addVisualIndice(j, i)" (mouseleave)="deleteVisualIndice(j, i)" (mouseover)="clicked && picrossCase.changeState();clicked && changeIndice(i,j)" (mousedown)="mouseDown($event, i, j, picrossCase)"  (contextmenu)="clicked=false;picrossCase.markState();changeIndice(i,j)">
+      <td class="case {{ 'case-'+picrossCase.getState() }}" [ngStyle]="{'background-color': gridState.finish? picrossCase.getColor() : picrossCase.getState() === 1 ? 'black' : 'white'}" [ngClass]="{'border-right-5' : (j+1)%5 == 0, 'border-bottom-5' : (i+1)%5 == 0}" *ngFor="let picrossCase of picrossRow; let j=index" (mouseenter)="addVisualIndice(j, i)" (mouseleave)="deleteVisualIndice(j, i)" (mouseover)="clicked && picrossCase.changeState();clicked && changeIndice(i,j)" (mousedown)="mouseDown($event, i, j, picrossCase)"  (contextmenu)="clicked=false;picrossCase.markState();changeIndice(i,j)">
         &nbsp;&nbsp;
       </td>
     </tr>
