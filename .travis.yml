@@ -33,4 +33,4 @@ script:
   - ng test --watch=false
 
 after_success:
-  - codecov
+  - codecov -f coverage/*.json
