@@ -12,12 +12,19 @@ export class DisplayGridComponent implements OnInit {
   @Input() gridState: GridStateService;
   clicked = false;
 
-  markIndRow: Array<boolean>;
-  markIndCol: Array<boolean>;
+  visualIndiceCol: boolean[];
+  visualIndiceRow: boolean[];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+    this.visualIndiceCol = new Array(this.gridState.difficulty);
+    this.visualIndiceRow = new Array(this.gridState.difficulty);
+    for (let i = 0; i < this.gridState.difficulty; i++) {
+      this.visualIndiceCol[i] = false;
+      this.visualIndiceRow[i] = false;
+    }
   }
 
   changeIndice(i: number, j: number) {
@@ -116,6 +123,16 @@ export class DisplayGridComponent implements OnInit {
       picrossCase.changeState();
       this.changeIndice(i, j);
     }
+  }
+
+  addVisualIndice(c: number, r: number) {
+    this.visualIndiceCol[c] = true;
+    this.visualIndiceRow[r] = true;
+  }
+
+  deleteVisualIndice(c: number, r: number) {
+    this.visualIndiceCol[c] = false;
+    this.visualIndiceRow[r] = false;
   }
 
 }
