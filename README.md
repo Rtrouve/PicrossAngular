@@ -1,5 +1,9 @@
 [![Build Status](https://travis-ci.com/Rtrouve/PicrossAngular.svg?branch=master)](https://travis-ci.com/Rtrouve/PicrossAngular)
 
+
+[![codecov](https://codecov.io/gh/Rtrouve/PicrossAngular/branch/master/graph/badge.svg)](https://codecov.io/gh/Rtrouve/PicrossAngular)
+
+
 # Picross
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
