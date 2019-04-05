@@ -7,9 +7,10 @@ import { GridStateService } from '../grid-state.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  @Input() gridState: GridStateService;
   static readonly OK_MESSAGE = 'OK';
   static readonly ERROR_MESSAGE = 'Erreur';
+  @Input() gridState: GridStateService;
+
   message = '';
 
   answerState = 'answer-hidden';

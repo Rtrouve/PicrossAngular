@@ -39,7 +39,7 @@ export class GridStateService {
     for (let row = 0; row < this.grille.size; row++) {
       for (let col = 0; col < this.grille.size; col++) {
         if (this.grille.played[row][col].getState() === Case.FULL) {
-          if(!this.grille.played[row][col].equals(this.grille.solution[row][col])) {
+          if (!this.grille.played[row][col].equals(this.grille.solution[row][col])) {
             ok = false;
           }
         }

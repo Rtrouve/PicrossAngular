@@ -47,7 +47,7 @@
 }
 .indCol{
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
 }
 .indCol_case{
     padding: 1px 7.2px;

@@ -9,6 +9,8 @@ export class Grille {
     indCol: number[][] = new Array();
     markIndCol: boolean[] = new Array();
 
+    maxIndRow = 0;
+
     constructor(public size: number= 5, sol?: Case[][], pla?: Case[][]) {
         for (let row = 0; row < this.size; row++) {
             this.solution[row] = new Array();
@@ -54,6 +56,9 @@ export class Grille {
             }
             if (sumTempRow !== 0) {
                 this.indRow[row].push(sumTempRow);
+                if (this.indRow[row].length > this.maxIndRow) {
+                    this.maxIndRow = this.indRow[row].length;
+                }
             }
             if (sumTempCol !== 0) {
                 this.indCol[row].push(sumTempCol);
