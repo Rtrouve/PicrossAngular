@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col"></div>
-<div id="main-grid" class='grille col' [ngClass]="{'grayed' : !gridState.try }" (mouseup)="clicked=false" (mouseleave)="clicked=false">
+<div id="main-grid" class='grille col' (mouseup)="clicked=false" (mouseleave)="clicked=false">
     <div class='indCol'>
       <div class='indCol_case' [ngClass]="{ 'indiceVisual' : visualIndiceCol[c] }"  *ngFor="let indCol of gridState.grille.indCol; let c=index;">
         <div [ngClass]="gridState.grille.markIndCol[c] ? 'completed' : 'to-complete' " *ngFor="let ind of indCol">

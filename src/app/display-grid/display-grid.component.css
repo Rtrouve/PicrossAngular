@@ -4,12 +4,6 @@
 .to-complete{
     color: black;
 }
-.grayed{
-    background-color:lightgray;
-    opacity: 0.2;
-    pointer-events:none;
-    padding: 20px;
-}
 .indiceVisual{
     background-color:rgba(189, 241, 241, 0.85);
 }

@@ -17,7 +17,7 @@
       <button [disabled]="!gridState.try" class="btn btn-primary" (click)="verif()">
         Vérification
       </button>
-      <div class="" [ngClass]="message ==''? '' : message == 'Gagné !'? 'alert-success' : 'alert-danger'">{{message}}</div>
+      <div class="" [ngClass]="message ==''? '' : message == 'OK' ? 'alert-success' : 'alert-danger'">{{message}}</div>
     </div>
     <div class="indic-result" *ngFor="let i of gridState.nbError"  [ngClass]="i == 0 ? 'empty' : 'error'"></div>
   </div>

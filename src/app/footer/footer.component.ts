@@ -8,6 +8,8 @@ import { GridStateService } from '../grid-state.service';
 })
 export class FooterComponent implements OnInit {
   @Input() gridState: GridStateService;
+  static readonly OK_MESSAGE = 'OK';
+  static readonly ERROR_MESSAGE = 'Erreur';
   message = '';
 
   answerState = 'answer-hidden';
@@ -19,12 +21,12 @@ export class FooterComponent implements OnInit {
   }
 
   verif() {
-    const win = this.gridState.verifState();
+    const win = this.gridState.verifProgress();
 
     if (win) {
-      this.message = 'Gagné !';
+      this.message = FooterComponent.OK_MESSAGE;
     } else {
-      this.message = 'Faux !';
+      this.message = FooterComponent.ERROR_MESSAGE;
     }
 
     setTimeout(() =>

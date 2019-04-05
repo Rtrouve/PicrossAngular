@@ -1,5 +1,6 @@
 import { Injectable, Input } from '@angular/core';
 import { Grille } from './grille';
+import { Case } from './case';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,29 @@ export class GridStateService {
     this.try = true;
   }
 
+  verifProgress() {
+    let ok = true;
+    for (let row = 0; row < this.grille.size; row++) {
+      for (let col = 0; col < this.grille.size; col++) {
+        if (this.grille.played[row][col].getState() === Case.FULL) {
+          if(!this.grille.played[row][col].equals(this.grille.solution[row][col])) {
+            ok = false;
+          }
+        }
+      }
+    }
+
+    if (this.nbError[this.MAX_ERROR - 1] === 0) {
+      this.nbError[this.currentError] = 1;
+      this.currentError++;
+    }
+    if (this.nbError[this.MAX_ERROR - 1] === 1) {
+      this.try = false;
+    }
+
+    return ok;
+  }
+
   verifState() {
     let victory = true;
     for (let row = 0; row < this.grille.size; row++) {
@@ -40,16 +64,6 @@ export class GridStateService {
         if (!this.grille.played[row][col].equals(this.grille.solution[row][col])) {
           victory = false;
         }
-      }
-    }
-
-    if (!victory) {
-      if (this.nbError[this.MAX_ERROR - 1] === 0) {
-        this.nbError[this.currentError] = 1;
-        this.currentError++;
-      }
-      if (this.nbError[this.MAX_ERROR - 1] === 1) {
-        this.try = false;
       }
     }
 

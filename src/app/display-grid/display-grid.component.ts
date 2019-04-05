@@ -93,7 +93,7 @@ export class DisplayGridComponent implements OnInit {
     const sumRow =  this.gridState.grille.markIndRow.reduce(this.boolAndArray);
 
     if (sumCol && sumRow) {
-      if (this.gridState.verifState) {
+      if (this.gridState.verifState()) {
         this.gridState.endChange();
       }
       /* Add method in grid service > what to do when the grid is completed
