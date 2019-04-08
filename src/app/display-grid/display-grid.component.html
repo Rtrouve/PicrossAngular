@@ -3,15 +3,15 @@
 <div id="main-grid" class='grille col-md-auto' (mouseup)="clicked=false" (mouseleave)="clicked=false">
     <div class='indCol'>
       <div class='indCol_case' [ngClass]="{ 'indiceVisual' : visualIndiceCol[c] }"  *ngFor="let indCol of gridState.grille.indCol; let c=index;">
-        <div [ngClass]="gridState.grille.markIndCol[c] ? 'completed' : 'to-complete' " *ngFor="let ind of indCol">
+        <div [ngClass]="gridState.grille.markIndCol[c][in] ? 'completed' : 'to-complete' " *ngFor="let ind of indCol;let in = index;">
           {{ind}}
         </div>
       </div>
     </div>
-  
-  <table  >
+
+  <table >
     <tr class='row_p' *ngFor="let picrossRow of gridState.grille.played; let i=index">
-      <td class='indRow' [ngClass]="{'completed' : gridState.grille.markIndRow[i], 'to-complete' : !gridState.grille.markIndRow[i], 'indiceVisual' : visualIndiceRow[i]}"  *ngFor="let ind of gridState.grille.indRow[i];let j=index">
+      <td class='indRow' [ngClass]="{'completed' : gridState.grille.markIndRow[i][j], 'to-complete' : !gridState.grille.markIndRow[i][j], 'indiceVisual' : visualIndiceRow[i]}"  *ngFor="let ind of gridState.grille.indRow[i];let j=index">
           {{ind}}
       </td>
       <td class='indRow' [ngClass]="{'indiceVisual' : visualIndiceRow[i]}"  *ngIf="gridState.grille.indRow[i].length < gridState.grille.maxIndRow">

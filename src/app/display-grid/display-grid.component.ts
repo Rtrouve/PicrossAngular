@@ -32,61 +32,94 @@ export class DisplayGridComponent implements OnInit {
     const indicesCol = this.gridState.grille.indCol[j];
 
     /*vérifier la ligne*/
+    let stopVerif = 0;
     let current = 0;
-    let lineVerif = true;
+//    let depCurrent = 0;
+    let caseVerif = true;
+    let countInd = 0;
     for (const element of indicesRow) {
       let compt = element;
+      caseVerif = true;
 
       while (current < this.gridState.grille.size && !(this.gridState.grille.played[i][current].getState() === Case.FULL)) {
         current++;
+//        depCurrent = current;
       }
       while (current < this.gridState.grille.size && this.gridState.grille.played[i][current].getState() === Case.FULL) {
         compt--;
         current++;
       }
       if (compt !== 0) {
-        lineVerif = false;
+        caseVerif = false;
       }
+
+      if (caseVerif && (countInd === 0 || (countInd > 0 && indicesRow.slice(0, countInd).reduce(this.sumIndiceArray) < current - 1))) {
+        stopVerif = current;
+        this.gridState.grille.markIndRow[i][countInd] = true;
+      } else {
+        current = stopVerif;
+        this.gridState.grille.markIndRow[i][countInd] = false;
+      }
+
+//      depCurrent = stopVerif;
+      countInd++;
     }
 
+    let lineVerif = this.gridState.grille.markIndRow[i].reduce(this.boolAndArray);
     while (current < this.gridState.grille.size) {
       lineVerif = lineVerif && !(this.gridState.grille.played[i][current].getState() === Case.FULL);
       current++;
     }
 
-    if (lineVerif) {
-      this.gridState.grille.markIndRow[i] = true;
-    } else {
-      this.gridState.grille.markIndRow[i] = false;
+    if (this.gridState.grille.markIndRow[i].reduce(this.boolAndArray) && !lineVerif) {
+      this.gridState.grille.markIndRow[i].fill(false);
     }
 
     /*vérifier la colonne*/
+    stopVerif = 0;
     current = 0;
-    let colVerif = true;
+    caseVerif = true;
+    countInd = 0;
+//    depCurrent = 0;
     for (const element of indicesCol) {
+      caseVerif = true;
       let compt = element;
 
       while (current < this.gridState.grille.size && !(this.gridState.grille.played[current][j].getState() === Case.FULL)) {
+ //       depCurrent = current;
         current++;
       }
       while (current < this.gridState.grille.size && this.gridState.grille.played[current][j].getState() === Case.FULL) {
         compt--;
         current++;
       }
+
       if (compt !== 0) {
-        colVerif = false;
+//        || !((current === this.gridState.grille.size || this.gridState.grille.played[current][j].getState() === Case.CROSS)
+//        && (depCurrent === 0 || this.gridState.grille.played[depCurrent][j].getState() === Case.CROSS))) {
+        caseVerif = false;
       }
+
+      if (caseVerif &&  (countInd === 0 || (countInd > 0 && indicesCol.slice(0, countInd).reduce(this.sumIndiceArray) < current - 1))) {
+        stopVerif = current;
+        this.gridState.grille.markIndCol[j][countInd] = true;
+      } else {
+        current = stopVerif;
+        this.gridState.grille.markIndCol[j][countInd] = false;
+      }
+
+//      depCurrent = stopVerif;
+      countInd++;
     }
 
+    let colVerif = this.gridState.grille.markIndCol[j].reduce(this.boolAndArray);
     while (current < this.gridState.grille.size) {
       colVerif = colVerif && !(this.gridState.grille.played[current][j].getState() === Case.FULL);
       current++;
     }
 
-    if (colVerif) {
-      this.gridState.grille.markIndCol[j] = true;
-    } else {
-      this.gridState.grille.markIndCol[j] = false;
+    if (this.gridState.grille.markIndCol[j].reduce(this.boolAndArray) && !colVerif) {
+      this.gridState.grille.markIndCol[j].fill(false);
     }
 
     const sumCol =  this.gridState.grille.markIndCol.reduce(this.boolAndArray);
@@ -117,6 +150,10 @@ export class DisplayGridComponent implements OnInit {
 
   boolAndArray(accumulator, a) {
     return accumulator && a;
+  }
+
+  sumIndiceArray(accumulator, a) {
+    return accumulator + a + 1;
   }
 
   mouseDown(event, i: number, j: number, picrossCase: Case) {
