@@ -10,14 +10,6 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/chrono" >Time trial</a>
           </li>
-          <li class="nav-item dropdown">
-            <span class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Niveaux
-            </span>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" *ngFor="let c of numbers;let i=index" routerLink="/level/{{(i + 1)}}" >Niveau {{(i + 1)}}</a>
-            </div>
-          </li>
       </ul>
   </div>
 </nav>
