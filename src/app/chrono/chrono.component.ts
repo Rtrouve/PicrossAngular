@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GridStateService } from '../grid-state.service';
+import { trigger, state, style } from '@angular/animations';
 
 @Component({
   selector: 'app-chrono',

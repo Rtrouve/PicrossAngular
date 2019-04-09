@@ -7,3 +7,19 @@
 .indiceVisual{
     background-color:rgba(189, 241, 241, 0.85);
 }
+#main-grid {
+    height: inherit;
+}
+.case{
+    padding: 7px;
+    display: table-cell;
+    text-align: center;
+    border: 0.1px solid gray;
+    border-collapse: collapse;
+    pointer-events: auto;
+    min-width: 40px;
+    background-image: linear-gradient(black, black);
+    background-repeat: no-repeat;
+    color: black;
+    background-position: 50% 50%;
+}

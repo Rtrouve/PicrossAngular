@@ -1,9 +1,40 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Case } from '../case';
 import { GridStateService } from '../grid-state.service';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-display-grid',
+  animations: [
+    trigger('selectedTransition', [
+      state('empty', style({
+      //  backgroundColor: 'white',
+        backgroundSize: '0% 0%',
+      })),
+      state('full', style({
+      //  backgroundColor: 'black',
+        backgroundSize: '100% 100%',
+      })),
+      transition('empty => full', [
+        animate('0.5s ease-out')
+      ]),
+      transition('full => empty', [
+        animate('0.5s ease-out')
+      ])
+    ]),
+    trigger('coloring', [
+      state('color', style({
+        backgroundSize: '0% 0%',
+        backgroundColor: '{{ backColor}}'
+      }), {params:{ backColor:'white'}}),
+      state('transparent', style({
+        backgroundColor: 'white'
+      })),
+      transition('* => color', [
+        animate('0.5s')
+      ])
+    ])
+  ],
   templateUrl: './display-grid.component.html',
   providers: [GridStateService],
   styleUrls: ['./display-grid.component.css']

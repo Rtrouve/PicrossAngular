@@ -5,7 +5,8 @@ button.upper-bar{
     margin: 5px 8px;
 }
 label#size{
-    text-align: center;
+    text-align: right;
     align-content: center;
     display: grid;
+    font-size: large;
 }

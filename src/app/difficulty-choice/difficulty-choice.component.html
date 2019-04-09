@@ -4,7 +4,7 @@
     <label id="size" class="col"> Taille : </label>
     <!-- <input class="space-input" [(ngModel)]="this.difficulty" placeholder="difficulty"/> -->
       <select class="col-2" [(ngModel)]="this.gridState.difficulty" >
-        <option *ngFor="let x of [5,10,15,20]" [ngValue]="x">{{x}}</option>
+        <option *ngFor="let x of [5,10,15]" [ngValue]="x">{{x}}</option>
       </select>
     
     <button (click)="generate()" type="button" class="col-2 upper-bar btn btn-light">

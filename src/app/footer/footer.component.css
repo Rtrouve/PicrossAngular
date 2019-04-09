@@ -30,3 +30,18 @@
 .indic-result{
     margin: 20px 8px;
 }
+.case-1{
+    background-color: black;
+}
+.case-0{
+    background-color: white;
+}
+.case{
+    padding: 7px;
+    display: table-cell;
+    text-align: center;
+    border: 0.1px solid gray;
+    border-collapse: collapse;
+    pointer-events: auto;
+    min-width: 40px;
+}
