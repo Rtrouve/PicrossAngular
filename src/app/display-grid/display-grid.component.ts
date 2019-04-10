@@ -13,12 +13,17 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
       })),
       state('full', style({
       //  backgroundColor: 'black',
+        backgroundImage: 'linear-gradient(black, black)',
         backgroundSize: '100% 100%',
       })),
-      transition('empty => full', [
-        animate('0.5s ease-out')
+      state('cross', style({
+        backgroundImage: 'url("./assets/croix.png")',
+        backgroundSize: '100% 100%'
+      })),
+      transition('* => cross', [
+        animate('0.1s')
       ]),
-      transition('full => empty', [
+      transition('* => *', [
         animate('0.5s ease-out')
       ])
     ]),

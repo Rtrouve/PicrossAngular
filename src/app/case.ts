@@ -43,7 +43,7 @@ export class Case {
     }
 
     public changeState() {
-        if (this.state === Case.EMPTY) {
+        if (!(this.state === Case.FULL)) {
             this.state = Case.FULL;
         } else {
             this.state = Case.EMPTY;

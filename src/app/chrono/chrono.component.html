@@ -3,13 +3,13 @@
   <div class="row">
     <div class="col-4" id="menu">
       <br/>
-      <label class="row">Score Max : {{ scoreMax }}</label>
+      <label class="row" i18n>Score Max : {{ scoreMax }}</label>
       <br/>
-      <label class="row">Solved : {{ gridState.countResolve }}</label>
+      <label class="row" i18n>Solved : {{ gridState.countResolve }}</label>
       <br/>
-      <label class="row">Remaining Time :&nbsp;<strong> {{ remainingTime }}</strong></label>
+      <label class="row" i18n>Remaining Time :&nbsp;<strong i18n> {{ remainingTime }}</strong></label>
       <br/>
-      <div class="row"><button [disabled]="running" (click)="startTimer()" type="button" class="col btn btn-primary" >Start</button><button (click)="stopTimeTrial()" type="button" class="col btn btn-warning" >Reset</button></div>
+      <div class="row"><button [disabled]="running" (click)="startTimer()" type="button" class="col btn btn-primary" >Start</button><button (click)="stopTimeTrial()" type="button" class="col btn btn-warning" i18n>Reset</button></div>
     </div>
     <div class="col-1"></div>
     <div class="col-6" id="board">
