@@ -26,7 +26,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
       state('color', style({
         backgroundSize: '0% 0%',
         backgroundColor: '{{ backColor}}'
-      }), {params:{ backColor:'white'}}),
+      }), {params: { backColor: 'white'}}),
       state('transparent', style({
         backgroundColor: 'white'
       })),

@@ -45,3 +45,6 @@
     pointer-events: auto;
     min-width: 40px;
 }
+.message-victory{
+    text-align: center;
+}
