@@ -5,6 +5,7 @@ import { DifficultyChoiceComponent } from '../difficulty-choice/difficulty-choic
 import { DisplayGridComponent } from '../display-grid/display-grid.component';
 import { FooterComponent } from '../footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('RandomComponent', () => {
   let component: RandomComponent;
@@ -18,7 +19,8 @@ describe('RandomComponent', () => {
         FooterComponent,
         RandomComponent ],
       imports: [
-        FormsModule
+        FormsModule,
+        BrowserAnimationsModule
       ]
     })
     .compileComponents();

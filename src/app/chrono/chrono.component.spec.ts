@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ChronoComponent } from './chrono.component';
 import { DisplayGridComponent } from '../display-grid/display-grid.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('ChronoComponent', () => {
   let component: ChronoComponent;
@@ -15,7 +16,8 @@ describe('ChronoComponent', () => {
         DisplayGridComponent
       ],
       imports: [
-        FormsModule
+        FormsModule,
+        BrowserAnimationsModule
       ]
     })
     .compileComponents();
