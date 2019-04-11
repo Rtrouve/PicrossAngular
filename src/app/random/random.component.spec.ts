@@ -6,6 +6,7 @@ import { DisplayGridComponent } from '../display-grid/display-grid.component';
 import { FooterComponent } from '../footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 describe('RandomComponent', () => {
   let component: RandomComponent;
@@ -20,7 +21,11 @@ describe('RandomComponent', () => {
         RandomComponent ],
       imports: [
         FormsModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        TranslateModule.forRoot()
+      ],
+      providers: [
+        TranslateService
       ]
     })
     .compileComponents();
