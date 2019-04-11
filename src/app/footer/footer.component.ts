@@ -12,9 +12,7 @@ export class FooterComponent implements OnInit {
   @Input() gridState: GridStateService;
 
   message = '';
-
   answerState = 'answer-hidden';
-  commandAnswer = 'Montrez la réponse';
 
   constructor() { }
 

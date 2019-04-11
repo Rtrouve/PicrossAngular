@@ -36,15 +36,6 @@
 .case-0{
     background-color: white;
 }
-.case{
-    padding: 7px;
-    display: table-cell;
-    text-align: center;
-    border: 0.1px solid gray;
-    border-collapse: collapse;
-    pointer-events: auto;
-    min-width: 40px;
-}
 .message-victory{
     text-align: center;
 }

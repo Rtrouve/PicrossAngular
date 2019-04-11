@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header (changeLangEvent)="useLanguage($event)"></app-header>
 <div [@routeAnimations]="prepareRouter(outlet)">
 <router-outlet #outlet="outlet"></router-outlet>
 </div>

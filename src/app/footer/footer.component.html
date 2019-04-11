@@ -1,6 +1,6 @@
 <div class="row" id='footer'>
     <div class=col id='answer-module'>
-      <button type=button class="btn btn-warning" (click)="show_answer()">{{ this.commandAnswer }}</button>
+      <button type=button class="btn btn-warning" (click)="show_answer()"><ng-container>{{ 'FOOTER.showAnswer' | translate }}</ng-container></button>
   
       <div class='grille {{answerState}}' >
         <table>
@@ -13,14 +13,14 @@
       </div>
     </div>
     <div class="col message-victory">
-      <label class="h3" *ngIf="gridState.finish" i18n>Bravo !</label>
+      <label class="h3" *ngIf="gridState.finish">{{ 'FOOTER.cheer' | translate }}</label>
     </div>
   
     <div id='win-message col'>
-      <button [disabled]="!gridState.try" class="btn btn-primary" (click)="verif()" i18n>
-        Vérification
+      <button [disabled]="!gridState.try" class="btn btn-primary" (click)="verif()">
+        <ng-container translate>{{ 'FOOTER.check' | translate }}</ng-container>
       </button>
-      <div class="" [ngClass]="message ==''? '' : message == 'OK' ? 'alert-success' : 'alert-danger'" i18n>{{message}}</div>
+      <div class="" [ngClass]="message ==''? '' : message == 'OK' ? 'alert-success' : 'alert-danger'">{{message}}</div>
     </div>
     <div class="indic-result" *ngFor="let i of gridState.nbError"  [ngClass]="i == 0 ? 'empty' : 'error'"></div>
   </div>

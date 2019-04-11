@@ -1,0 +1,23 @@
+ {
+    "HEADER": {
+        "title": "Picross",
+        "random": "Hasard",
+        "timeTrial": "Contre la montre"
+    },
+    "TIMETRIAL": {
+        "max": "Score Max",
+        "solve": "Complété",
+        "timeLeft": "Temps Restant",
+        "start": "Start",
+        "reset": "Reset"
+    },
+    "RANDOM": {
+        "size": " Taille : ",
+        "refresh": "Recharger"
+    },
+    "FOOTER": {
+        "cheer": "Bravo !",
+        "check": "Vérification",
+        "showAnswer": "Montrer la réponse"
+    }
+ }

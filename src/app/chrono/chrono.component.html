@@ -3,26 +3,18 @@
   <div class="row">
     <div class="col-4" id="menu">
       <br/>
-      <label class="row" i18n>Score Max : {{ scoreMax }}</label>
+      <label class="row"><ng-container>{{ 'TIMETRIAL.max' | translate }} : </ng-container>{{ scoreMax }}</label>
       <br/>
-      <label class="row" i18n>Solved : {{ gridState.countResolve }}</label>
+      <label class="row"><ng-container>{{ 'TIMETRIAL.solve' | translate }} : </ng-container>{{ gridState.countResolve }}</label>
       <br/>
-      <label class="row" i18n>Remaining Time :&nbsp;<strong i18n> {{ remainingTime }}</strong></label>
+      <label class="row" ><ng-container>{{ 'TIMETRIAL.timeLeft' | translate }} : </ng-container>&nbsp;<strong> {{ remainingTime }}</strong></label>
       <br/>
-      <div class="row"><button [disabled]="running" (click)="startTimer()" type="button" class="col btn btn-primary" >Start</button><button (click)="stopTimeTrial()" type="button" class="col btn btn-warning" i18n>Reset</button></div>
+      <div class="row"><button [disabled]="running" (click)="startTimer()" type="button" class="col btn btn-primary" ><ng-container>{{ 'TIMETRIAL.start' | translate }}</ng-container></button><button (click)="stopTimeTrial()" type="button" class="col btn btn-warning"><ng-container>{{ 'TIMETRIAL.reset' | translate }}</ng-container></button></div>
     </div>
     <div class="col-1"></div>
     <div class="col-6" id="board">
-      <div id="incoming-row">
-
-      </div>
-
       <div  class="row" id="playing-row">
           <app-display-grid [ngClass]="{'unplayable' : !running}" [gridState]="gridState" ></app-display-grid>
-      <div id="disappear-row">
-
-      </div>
-
     </div>
   </div>
 </div>
