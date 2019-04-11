@@ -17,7 +17,7 @@ describe('FooterComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [ FooterComponent ],
-      providers: [ GridStateService,TranslateService ],
+      providers: [ GridStateService, TranslateService ],
       imports: [ TranslateModule.forRoot() ]
     })
     .compileComponents();
