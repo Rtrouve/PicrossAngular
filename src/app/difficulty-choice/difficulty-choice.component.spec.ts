@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DifficultyChoiceComponent } from './difficulty-choice.component';
 import { FormsModule } from '@angular/forms';
 import { GridStateService } from '../grid-state.service';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 describe('DifficultyChoiceComponent', () => {
   let component: DifficultyChoiceComponent;
@@ -17,7 +17,7 @@ describe('DifficultyChoiceComponent', () => {
         FormsModule,
         TranslateModule.forRoot()
       ],
-      providers: [ GridStateService ]
+      providers: [ GridStateService, TranslateService ]
     })
     .compileComponents();
   }));

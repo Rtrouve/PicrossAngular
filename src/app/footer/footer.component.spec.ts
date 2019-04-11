@@ -19,7 +19,8 @@ describe('FooterComponent', () => {
       declarations: [ FooterComponent ],
       providers: [ GridStateService ],
       imports: [ TranslateModule.forRoot() ]
-    })
+    }),
+    providers: [TranslateService]
     .compileComponents();
   }));
 
