@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FooterComponent } from './footer.component';
 import { GridStateService } from '../grid-state.service';
 import { Grille } from '../grille';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 describe('FooterComponent', () => {
   let component: FooterComponent;
@@ -17,10 +17,9 @@ describe('FooterComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [ FooterComponent ],
-      providers: [ GridStateService ],
+      providers: [ GridStateService,TranslateService ],
       imports: [ TranslateModule.forRoot() ]
-    }),
-    providers: [TranslateService]
+    })
     .compileComponents();
   }));
 
