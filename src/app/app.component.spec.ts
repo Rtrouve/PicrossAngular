@@ -3,6 +3,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -12,7 +13,8 @@ describe('AppComponent', () => {
         HeaderComponent
         ],
         imports: [
-          RouterTestingModule
+          RouterTestingModule,
+          TranslateService
         ]
     }).compileComponents();
   }));

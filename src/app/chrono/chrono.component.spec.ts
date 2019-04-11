@@ -4,6 +4,7 @@ import { ChronoComponent } from './chrono.component';
 import { DisplayGridComponent } from '../display-grid/display-grid.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('ChronoComponent', () => {
   let component: ChronoComponent;
@@ -17,7 +18,8 @@ describe('ChronoComponent', () => {
       ],
       imports: [
         FormsModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        TranslateModule.forRoot()
       ]
     })
     .compileComponents();
