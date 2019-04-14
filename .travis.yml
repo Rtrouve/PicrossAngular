@@ -1,36 +1,39 @@
 dist: trusty
 sudo: false
-
 addons:
   apt:
     sources:
-      - google-chrome
+    - google-chrome
     packages:
-      - google-chrome-stable
-
+    - google-chrome-stable
 language: node_js
 node_js:
-  - "10.4.1"
-
+- 10.4.1
 branches:
   only:
-    - master
-
+  - master
 cache:
   directories:
-    - ./node_modules
-
+  - "./node_modules"
 before_script:
-  - export CHROME_BIN=/usr/bin/google-chrome
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - npm install -g @angular/cli
-
+- export CHROME_BIN=/usr/bin/google-chrome
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- npm install -g @angular/cli
 script:
-  - npm install codecov -g
-  - ng lint
-  - ng build --prod --aot
-  - ng test --watch=false
-
+- npm install codecov -g
+- ng lint
+- ng build --prod --aot
+- ng test --watch=false
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: "$GITHUB_TOKEN"
+  keep_history: true
+  on:
+    branch: master
 after_success:
-  - codecov -f coverage/*.json
+- codecov -f coverage/*.json
+env:
+  matrix:
+    secure: kT1JLFE55wMRGrMtsnooRNAmGI6aQ9sui3doBkVTKpbQd4Scq80ZadJ11TMZikDKTD/pbkOKCbq7g5Jfn6AKQIDwQkplOe/p2B9jXXAjBXY3GpEWrjj997dposRTaQUn4qyM2SDQ8wVtEEk+Dw4mfjaP4EoaaHvokImnYKQOQn10hxF3kbRQictGD11dvd6Ta1GqTXLkFFlL7LbiZhHMWEWMY9lfFxrsBW35ZMAsdBHjJCxpWKeJn0pIxUnY8Aaf2JrNvtTSoYflSaynqhHcvFYITeLQoXHaZrqWz8PBLJJobmBI8H0ghzfrhkdzKxwA3F6IVSJ1wNZ371LFHjud0WKjACMYZAGBdYSpxKGw4QK4NLv7PJCYqwJT85kwC5nGmiKomGzRT7U+xRldAthWAIOaunH334rhhRMyv0gjpoA17BPk+p642mKPbS9jeaeqAwMeuAmASbiPiVzp52dmoulBIYn8499PEMseoHwEbyZPHhaB9gQ/U3AeSDg1PPPKX1PvBIKhpGdXIuwkaoX1CRe9X2vdmiAXDDHG0th7O+C4S9mAyax6tUrjUDsxN1259sdFLfHseLhJJb8Dkj9fGW52Og1LHtcD27l/PvS+Yj5vzK999HFVCjstHsHYgvoMuHJGE5uC8xo1oXGUR6yHDz9NMcfYL0VlDMavVpXbGZw=
