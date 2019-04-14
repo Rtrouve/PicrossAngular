@@ -1,0 +1,28 @@
+<div class='container'>
+  <div id="difficulty-choice" class="row">
+    <div class="col-lg-3"></div>
+    <label id="size" class="col">{{ 'RANDOM.size' | translate }}</label>
+    <!-- <input class="space-input" [(ngModel)]="this.difficulty" placeholder="difficulty"/> -->
+      <select class="col-2" [(ngModel)]="this.gridState.difficulty" >
+        <option *ngFor="let x of [5,10,15]" [ngValue]="x">{{x}}</option>
+      </select>
+    
+    <button (click)="generate()" type="button" class="col-2 upper-bar btn btn-light">
+      <span class="glyphicon glyphicon-refresh" ></span> <ng-container>{{ 'RANDOM.refresh' | translate }}</ng-container>
+    </button>
+    <div class="col-3"></div>
+  </div>
+
+</div>
+<!--
+<div>
+  <input class="space-input" [(ngModel)]="this.filename" placeholder="grid.json"/>
+  <button (click)="open()" type="button" class="upper-bar btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-download"></span> Ouvrir
+  </button>
+  <input class="space-input" [(ngModel)]="this.filename" placeholder="grid.json"/>
+  <button (click)="save()" type="button" class="upper-bar btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-upload"></span> Sauvegarder
+  </button>
+</div>
+-->

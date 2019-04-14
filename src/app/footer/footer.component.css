@@ -1,0 +1,41 @@
+.answer-hidden{
+    display: none;
+}
+.answer-shown{
+    display: block;
+}
+#answer-module div{
+    left:50%;
+}
+#footer{
+    display: flex;
+}
+#footer div {
+    padding:10px;
+}
+.error{
+    background-image: url('../../assets/croix.png');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 16px;
+    filter: grayscale(0%);
+}
+.empty{
+    background-image: url('../../assets/croix.png');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 16px;
+    filter: grayscale(100%);
+}
+.indic-result{
+    margin: 20px 8px;
+}
+.case-1{
+    background-color: black;
+}
+.case-0{
+    background-color: white;
+}
+.message-victory{
+    text-align: center;
+}

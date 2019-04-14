@@ -1,0 +1,12 @@
+.completed{
+    color:lightgray;
+}
+.to-complete{
+    color: black;
+}
+.indiceVisual{
+    background-color:rgba(189, 241, 241, 0.85);
+}
+#main-grid {
+    height: inherit;
+}

@@ -1,0 +1,26 @@
+<div class="row" id='footer'>
+    <div class=col id='answer-module'>
+      <button type=button class="btn btn-warning" (click)="show_answer()"><ng-container>{{ 'FOOTER.showAnswer' | translate }}</ng-container></button>
+  
+      <div class='grille {{answerState}}' >
+        <table>
+          <tr class='row_p' *ngFor="let picrossRow of gridState.grille.solution; let i=index">
+            <td class="case {{ 'case-'+picrossCase.getState() }}" [ngClass]="{'border-right-5' : (j+1)%5 == 0, 'border-bottom-5' : (i+1)%5 == 0 }" *ngFor="let picrossCase of picrossRow; let j=index" >
+              &nbsp;&nbsp;
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="col message-victory">
+      <label class="h3" *ngIf="gridState.finish">{{ 'FOOTER.cheer' | translate }}</label>
+    </div>
+  
+    <div id='win-message col'>
+      <button [disabled]="!gridState.try" class="btn btn-primary" (click)="verif()">
+        <ng-container translate>{{ 'FOOTER.check' | translate }}</ng-container>
+      </button>
+      <div class="" [ngClass]="message ==''? '' : message == 'OK' ? 'alert-success' : 'alert-danger'">{{message}}</div>
+    </div>
+    <div class="indic-result" *ngFor="let i of gridState.nbError"  [ngClass]="i == 0 ? 'empty' : 'error'"></div>
+  </div>

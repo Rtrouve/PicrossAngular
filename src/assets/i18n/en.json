@@ -1,0 +1,23 @@
+{
+    "HEADER": {
+        "title": "Picross",
+        "random": "Random",
+        "timeTrial": "Time Attack"
+    },
+    "TIMETRIAL": {
+        "max": "Score Max",
+        "solve": "Solved",
+        "timeLeft": "Time Left",
+        "start": "Start",
+        "reset": "Reset"
+    },
+    "RANDOM": {
+        "size": " Size : ",
+        "refresh": "Refresh"
+    },
+    "FOOTER": {
+        "cheer": "Congratulations !",
+        "check": "Check",
+        "showAnswer": "Show the answer"
+    }
+ }

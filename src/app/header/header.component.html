@@ -1,0 +1,19 @@
+
+<nav class="navbar-light sticky-top navbar-expand-sm bg-light">
+    
+    <div class=" navbar-collapse">
+        <a class="navbar-brand" id="brand-picross" href="#" translate>HEADER.title</a>
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/random" translate>HEADER.random</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/chrono" [translate]="'HEADER.timeTrial'" ></a>
+          </li>
+          <li>
+      </ul>
+      <button class="btn" (click)="callChangeLang('en')">en</button>
+      <button class="btn" (click)="callChangeLang('fr')">fr</button>
+  </div>
+</nav>
+

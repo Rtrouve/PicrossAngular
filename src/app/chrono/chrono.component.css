@@ -1,0 +1,16 @@
+.completed{
+    color:lightgray;
+}
+.to-complete{
+    color: black;
+}
+.unplayable{
+    background-color:lightgray;
+    opacity: 0.2;
+    pointer-events:none;
+}
+.container {
+    background-color: white;
+    padding: 36px;
+    box-shadow: 10px 0px 9px gray, -10px 0px 9px gray;
+}

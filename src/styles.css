@@ -1,0 +1,72 @@
+html, body {
+    min-height: 100vh;
+    height: auto;
+    margin: 0;
+    background-color: aliceblue;
+}
+#global-grid{
+    height: inherit;
+    background-color: white;
+    box-shadow: 10px 0px 9px gray, -10px 0px 9px gray;
+}
+.container app-display-grid .row {
+    height: min-content;
+}
+.grille{
+    padding-left: 15px;
+    width: fit-content;
+    display: inline-table;
+    user-select: none;
+}
+.grille:hover{
+    cursor:default;
+}
+.case{
+    padding: 7px;
+    display: table-cell;
+    text-align: center;
+    border: 0.1px solid gray;
+    border-collapse: collapse;
+    min-width: 40px;
+    background-repeat: no-repeat;
+    color: black;
+    background-position: 50% 50%;
+}
+.case-2{
+    background-image: url('./assets/croix.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px;
+    opacity: 0.6;
+}
+.case:hover{
+    box-shadow: inset 0 0 0 3px rgba(189, 241, 241, 0.85);
+    
+}
+.indRow{
+    display: inline;
+    line-height: 23px;
+    pointer-events: none;
+}
+.indCol{
+    display: flex;
+    justify-content: flex-end;
+}
+.indCol_case{
+    padding: 1px 15.4px;
+}
+.indColCase5{
+    border-right: 1px solid black;
+}
+.row_p_5{
+    border-bottom: 1px solid black !important;
+}
+.border-right-5{
+    border-right: 1px solid black !important;
+}
+.border-bottom-5{
+    border-bottom: 1px solid black !important;
+}
+app-display-grid{
+    padding: 20px;
+}
