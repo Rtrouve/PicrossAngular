@@ -14,6 +14,7 @@
     </div>
     <div class="col message-victory">
       <label class="h3" *ngIf="gridState.finish">{{ 'FOOTER.cheer' | translate }}</label>
+      <label *ngIf="gridState.finish">&nbsp;&nbsp;{{ gridState.timer }} s</label>
     </div>
   
   <div class="row">

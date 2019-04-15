@@ -16,6 +16,9 @@ export class GridStateService {
   try = true;
   finish = false;
 
+  timer = 0;
+  timerInter;
+
   // Time trial var
   endChoice: boolean;
   countResolve = 0;
@@ -34,6 +37,11 @@ export class GridStateService {
     this.currentError = 0;
     this.try = true;
     this.finish = false;
+    this.timer = 0;
+    clearInterval(this.timerInter);
+    this.timerInter = setInterval(() =>
+    this.timer++, 1000
+  );
   }
 
   verifProgress() {
@@ -73,6 +81,7 @@ export class GridStateService {
   }
 
   endChange() {
+    clearInterval(this.timerInter);
     if (this.endChoice) {
       this.countResolve++;
 
