@@ -31,6 +31,8 @@ deploy:
   github_token: "$GITHUB_TOKEN"
   keep_history: true
   repo: 'Rtrouve/rtrouve.github.io'
+  local_dir: 'dist/picross'
+  target_branch: 'master'
   on:
     branch: master
 after_success:
