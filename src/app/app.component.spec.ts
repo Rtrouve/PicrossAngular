@@ -7,6 +7,7 @@ import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate
 import {HttpLoaderFactory} from './app.module';
 import {HttpClient} from '@angular/common/http';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
+import { ExplanationComponent } from './explanation/explanation.component';
 
 const TRANSLATIONS_EN = require('../assets/i18n/en.json');
 const TRANSLATIONS_FR = require('../assets/i18n/fr.json');
@@ -19,7 +20,8 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        HeaderComponent
+        HeaderComponent,
+        ExplanationComponent
         ],
         imports: [
           RouterTestingModule,
