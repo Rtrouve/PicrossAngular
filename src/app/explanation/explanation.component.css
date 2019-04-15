@@ -1,0 +1,18 @@
+.explanationBlock{
+    height: inherit;
+    background-color: white;
+    box-shadow: 10px 0px 9px gray, -1px -9px 9px gray;
+    position: relative;
+    padding: 30px;
+}
+.center{
+    text-align: center;
+    align-content: center;
+}
+.right{
+    text-align: end;
+}
+.imgCompleted{
+    position: relative;
+    left: 30%;
+}

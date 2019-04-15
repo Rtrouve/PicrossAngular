@@ -1,4 +1,6 @@
 <app-header (changeLangEvent)="useLanguage($event)"></app-header>
 <div [@routeAnimations]="prepareRouter(outlet)">
 <router-outlet #outlet="outlet"></router-outlet>
+<div class="row" id="separation"></div>
+<app-explanation></app-explanation>
 </div>

@@ -19,5 +19,15 @@
         "cheer": "Congratulations !",
         "check": "Check",
         "showAnswer": "Show the answer"
+    },
+    "EXPLANATION": {
+        "title": "Goal of Picross",
+        "basis": "Solve a grid by filling all the necessary cases using the indices for each line and column !",
+        "method": "How to do it ?",
+        "line": "The numbers at the left of a line or at the top of a column show the number of consecutives cases to fill by clicking on it. There is at least one empty space two series of filled cases",
+        "tipTitle": "Tips to solve a grid",
+        "tip1": "It's possible to cross cases that need to stay empty with the right click.",
+        "tip2": "We can check up to 3 times by grid that that currently filled cases are correct.",
+        "tip3": "At the beginning of a grid, you can start by filling lines/columns with the biggest numbers, with cases that have to be filled."
     }
- }
+}

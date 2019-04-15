@@ -16,6 +16,7 @@ import { ChronoComponent } from './chrono/chrono.component';
 import { FooterComponent } from './footer/footer.component';
 import { DifficultyChoiceComponent } from './difficulty-choice/difficulty-choice.component';
 import { RandomComponent } from './random/random.component';
+import { ExplanationComponent } from './explanation/explanation.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RandomComponent } from './random/random.component';
     ChronoComponent,
     FooterComponent,
     DifficultyChoiceComponent,
-    RandomComponent
+    RandomComponent,
+    ExplanationComponent
   ],
   imports: [
     BrowserModule,

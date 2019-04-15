@@ -37,7 +37,6 @@ html, body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 24px;
-    opacity: 0.6;
 }
 .case:hover{
     box-shadow: inset 0 0 0 3px rgba(189, 241, 241, 0.85);
@@ -70,4 +69,7 @@ html, body {
 }
 app-display-grid{
     padding: 20px;
+}
+#separation{
+    min-height: 50px;
 }
