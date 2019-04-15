@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col"></div>
-<div id="main-grid" class='grille col-md-auto' (mouseup)="clicked=false" (mouseleave)="clicked=false">
+  <div class="col-sm col-1"></div>
+<div id="main-grid" class='grille col-md-auto col-auto' (mouseup)="clicked=false" (mouseleave)="clicked=false">
     <div class='indCol'>
       <div class='indCol_case' [ngClass]="{ 'indiceVisual' : visualIndiceCol[c], 'indColCase5' : (c+1)%5 == 0 }"  *ngFor="let indCol of gridState.grille.indCol; let c=index;">
         <div [ngClass]="gridState.grille.markIndCol[c][in] ? 'completed' : 'to-complete' " *ngFor="let ind of indCol;let in = index;">
@@ -11,12 +11,14 @@
 
   <table >
     <tr class='row_p' [ngClass]="{'row_p_5': (i+1)%5 == 0 }" *ngFor="let picrossRow of gridState.grille.played; let i=index">
+    <div class='gridRow'>
       <td class='indRow' [ngClass]="{'completed' : gridState.grille.markIndRow[i][j], 'to-complete' : !gridState.grille.markIndRow[i][j], 'indiceVisual' : visualIndiceRow[i]}"  *ngFor="let ind of gridState.grille.indRow[i];let j=index">
           {{ind}}
       </td>
       <td class='indRow' [ngClass]="{'indiceVisual' : visualIndiceRow[i]}"  *ngIf="gridState.grille.indRow[i].length < gridState.grille.maxIndRow">
         &nbsp;&nbsp;
       </td>
+    </div>
       <td [@coloring]="{value: (gridState.finish? 'color':'transparent'), params: {backColor: picrossCase.getColor()} }" [@selectedTransition]="gridState.finish? 'empty' : (picrossCase.getState() === 0 ? 'empty' : (picrossCase.getState() === 2 ? 'cross' : 'full'))"   class="case {{ 'case-'+picrossCase.getState() }}" [ngStyle]="{'background-color': gridState.finish? picrossCase.getColor() : ''}" [ngClass]="{'border-right-5' : (j+1)%5 == 0, 'border-bottom-5' : (i+1)%5 == 0}" *ngFor="let picrossCase of picrossRow; let j=index" (mouseenter)="addVisualIndice(j, i)" (mouseleave)="deleteVisualIndice(j, i)" (mouseover)="clicked && picrossCase.changeState();clicked && changeIndice(i,j)" (mousedown)="mouseDown($event, i, j, picrossCase)"  (contextmenu)="clicked=false;picrossCase.markState();changeIndice(i,j)">
         &nbsp;&nbsp;
       </td>

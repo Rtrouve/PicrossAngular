@@ -10,3 +10,7 @@
 #main-grid {
     height: inherit;
 }
+.gridRow{
+    height: min-content;
+    display: flex;
+}

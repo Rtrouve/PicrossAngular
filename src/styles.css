@@ -47,6 +47,7 @@ html, body {
     display: inline;
     line-height: 23px;
     pointer-events: none;
+    margin: 0 0.3px;
 }
 .indCol{
     display: flex;

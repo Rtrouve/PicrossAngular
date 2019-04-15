@@ -16,6 +16,7 @@
       <label class="h3" *ngIf="gridState.finish">{{ 'FOOTER.cheer' | translate }}</label>
     </div>
   
+  <div class="row">
     <div id='win-message col'>
       <button [disabled]="!gridState.try" class="btn btn-primary" (click)="verif()">
         <ng-container translate>{{ 'FOOTER.check' | translate }}</ng-container>
@@ -24,3 +25,4 @@
     </div>
     <div class="indic-result" *ngFor="let i of gridState.nbError"  [ngClass]="i == 0 ? 'empty' : 'error'"></div>
   </div>
+</div>
