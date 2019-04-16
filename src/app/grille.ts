@@ -15,7 +15,7 @@ export class Grille {
 
     maxIndRow = 0;
 
-    constructor(public size: number= 5, sol?: Case[][], pla?: Case[][]) {
+    constructor(public size: number= 5, difficulty: number = 5, sol?: Case[][], pla?: Case[][]) {
 
         // Create the grid to solve (at random)
         for (let row = 0; row < this.size; row++) {
@@ -25,16 +25,16 @@ export class Grille {
 
                 // The state of the cell (Full or Empty)
                 // 5O% for each, change this to change difficulty (Emptier is more difficult)
-                const stateTemp = Math.floor(Math.random() * 2);
+                const stateTemp = Math.floor(Math.random() * 10);
 
                 // Create with color 'white' if empty, else random
-                if (stateTemp === 0) {
-                    this.solution[row][col] = new Case(stateTemp, 'white');
+                if (stateTemp > difficulty ) {
+                    this.solution[row][col] = new Case(0, 'white');
                 } else {
-                    this.solution[row][col] = new Case(stateTemp);
+                    this.solution[row][col] = new Case(1);
                 }
 
-                // Create empty plyer grid with the right color
+                // Create empty player grid with the right color
                 this.played[row][col] = new Case(0, this.solution[row][col].getColor());
             }
 

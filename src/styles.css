@@ -54,6 +54,7 @@ html, body {
 }
 .indCol_case{
     padding: 1px 15.4px;
+    max-width: 40.3px;
 }
 .indColCase5{
     border-right: 1px solid black;

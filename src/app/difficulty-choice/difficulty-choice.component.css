@@ -4,7 +4,7 @@ button.upper-bar{
 .space-input{
     margin: 5px 8px;
 }
-label#size{
+label.category{
     text-align: right;
     align-content: center;
     display: grid;

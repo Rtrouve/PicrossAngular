@@ -6,6 +6,7 @@ import { Case } from './case';
   providedIn: 'root'
 })
 export class GridStateService {
+  @Input() size = 5;
   @Input() difficulty = 5;
   grille: Grille;
 
@@ -26,8 +27,8 @@ export class GridStateService {
   constructor() {
   }
 
-  generateGrid(size: number = 5, endingChrono: boolean = false) {
-    this.grille = new Grille(size);
+  generateGrid(size: number = 5, endingChrono: boolean = false, difficulty: number = 5) {
+    this.grille = new Grille(size, difficulty);
     this.reset();
     this.endChoice = endingChrono;
   }

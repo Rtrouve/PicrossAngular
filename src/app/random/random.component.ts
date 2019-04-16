@@ -11,7 +11,7 @@ export class RandomComponent implements OnInit {
   constructor(public gridState: GridStateService) { }
 
   ngOnInit() {
-    this.gridState.generateGrid(this.gridState.difficulty);
+    this.gridState.generateGrid(this.gridState.size, false, this.gridState.difficulty);
   }
 
 }

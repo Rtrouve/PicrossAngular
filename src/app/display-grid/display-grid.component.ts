@@ -56,9 +56,9 @@ export class DisplayGridComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.visualIndiceCol = new Array(this.gridState.difficulty);
-    this.visualIndiceRow = new Array(this.gridState.difficulty);
-    for (let i = 0; i < this.gridState.difficulty; i++) {
+    this.visualIndiceCol = new Array(this.gridState.size);
+    this.visualIndiceRow = new Array(this.gridState.size);
+    for (let i = 0; i < this.gridState.size; i++) {
       this.visualIndiceCol[i] = false;
       this.visualIndiceRow[i] = false;
     }

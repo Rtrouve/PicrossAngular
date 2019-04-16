@@ -12,8 +12,12 @@
         "reset": "Reset"
     },
     "RANDOM": {
-        "size": " Size : ",
-        "refresh": "Refresh"
+        "size": "Size",
+        "refresh": "Refresh",
+        "difficulty": "Difficulty",
+        "easy": "Easy",
+        "medium": "Medium",
+        "hard": "Hard"
     },
     "FOOTER": {
         "cheer": "Congratulations !",

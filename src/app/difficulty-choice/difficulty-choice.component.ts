@@ -8,6 +8,7 @@ import { GridStateService } from '../grid-state.service';
 })
 export class DifficultyChoiceComponent implements OnInit {
   @Input() gridState: GridStateService;
+  difficultyList = ['RANDOM.easy', 'RANDOM.medium', 'RANDOM.hard']
 
   constructor() { }
 
@@ -15,7 +16,20 @@ export class DifficultyChoiceComponent implements OnInit {
   }
 
   generate() {
-    this.gridState.generateGrid(this.gridState.difficulty);
+    this.gridState.generateGrid(this.gridState.size, false, this.gridState.difficulty);
+  }
+
+  difficultyCorrespond(difficultyString: String) {
+    if (difficultyString === this.difficultyList[0]) {
+      return 7;
+    }
+    if (difficultyString === this.difficultyList[1]) {
+      return 5;
+    }
+    if (difficultyString === this.difficultyList[2]) {
+      return 3;
+    }
+    
   }
 
 }
