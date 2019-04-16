@@ -47,6 +47,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 export class DisplayGridComponent implements OnInit {
   @Input() gridState: GridStateService;
   clicked = false;
+  crossed = false;
 
   visualIndiceCol: boolean[];
   visualIndiceRow: boolean[];
@@ -165,19 +166,6 @@ export class DisplayGridComponent implements OnInit {
       if (this.gridState.verifState()) {
         this.gridState.endChange();
       }
-      /* Add method in grid service > what to do when the grid is completed
-         bool in constructor to choose behaviour (pass for time trial / color for random|level) ?
-
-         TODO
-      if(this.gridState.verifState()) {
-
-        // Generate New Grid
-        setTimeout(() =>
-        this.generate()
-        , 1000);
-
-      }
-      */
     } else {
       this.gridState.finish = false;
     }
@@ -195,8 +183,28 @@ export class DisplayGridComponent implements OnInit {
   mouseDown(event, i: number, j: number, picrossCase: Case) {
     if (event.which === 1) {
       this.clicked = true;
+      this.crossed = false;
       picrossCase.changeState();
       this.changeIndice(i, j);
+    }
+    else {
+      if (event.which === 3 ) {
+        event.preventDefault();
+        this.crossed = true;
+        this.clicked = false;
+        picrossCase.markState();
+      }
+    }
+  }
+
+  mouseOver(i: number, j: number, picrossCase: Case) {
+    if ( this.clicked ) {
+      picrossCase.changeState();
+      this.changeIndice(i,j);
+    } else {
+      if ( this.crossed ) {
+        picrossCase.markState();
+      }
     }
   }
 

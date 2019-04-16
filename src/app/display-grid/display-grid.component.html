@@ -19,7 +19,7 @@
         &nbsp;&nbsp;
       </td>
     </div>
-      <td [@coloring]="{value: (gridState.finish? 'color':'transparent'), params: {backColor: picrossCase.getColor()} }" [@selectedTransition]="gridState.finish? 'empty' : (picrossCase.getState() === 0 ? 'empty' : (picrossCase.getState() === 2 ? 'cross' : 'full'))"   class="case {{ 'case-'+picrossCase.getState() }}" [ngStyle]="{'background-color': gridState.finish? picrossCase.getColor() : ''}" [ngClass]="{'border-right-5' : (j+1)%5 == 0, 'border-bottom-5' : (i+1)%5 == 0}" *ngFor="let picrossCase of picrossRow; let j=index" (mouseenter)="addVisualIndice(j, i)" (mouseleave)="deleteVisualIndice(j, i)" (mouseover)="clicked && picrossCase.changeState();clicked && changeIndice(i,j)" (mousedown)="mouseDown($event, i, j, picrossCase)"  (contextmenu)="clicked=false;picrossCase.markState();changeIndice(i,j)">
+      <td [@coloring]="{value: (gridState.finish? 'color':'transparent'), params: {backColor: picrossCase.getColor()} }" [@selectedTransition]="gridState.finish? 'empty' : (picrossCase.getState() === 0 ? 'empty' : (picrossCase.getState() === 2 ? 'cross' : 'full'))"   class="case {{ 'case-'+picrossCase.getState() }}" [ngStyle]="{'background-color': gridState.finish? picrossCase.getColor() : ''}" [ngClass]="{'border-right-5' : (j+1)%5 == 0, 'border-bottom-5' : (i+1)%5 == 0}" *ngFor="let picrossCase of picrossRow; let j=index" (mouseenter)="addVisualIndice(j, i)" (mouseleave)="deleteVisualIndice(j, i)" (mouseover)="mouseOver(i, j, picrossCase)" (mousedown)="mouseDown($event, i, j, picrossCase)" (mouseup)="crossed=false;clicked=false" (contextmenu)="clicked=false;">
         &nbsp;&nbsp;
       </td>
     </tr>
