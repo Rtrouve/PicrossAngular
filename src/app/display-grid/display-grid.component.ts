@@ -186,8 +186,7 @@ export class DisplayGridComponent implements OnInit {
       this.crossed = false;
       picrossCase.changeState();
       this.changeIndice(i, j);
-    }
-    else {
+    } else {
       if (event.which === 3 ) {
         event.preventDefault();
         this.crossed = true;
@@ -200,7 +199,7 @@ export class DisplayGridComponent implements OnInit {
   mouseOver(i: number, j: number, picrossCase: Case) {
     if ( this.clicked ) {
       picrossCase.changeState();
-      this.changeIndice(i,j);
+      this.changeIndice(i, j);
     } else {
       if ( this.crossed ) {
         picrossCase.markState();
