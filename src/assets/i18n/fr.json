@@ -28,10 +28,12 @@
         "title": "But de Picross",
         "basis": "Résoudre une grille en remplissant toutes les cases nécessaires à l'aide des indices en lignes et en colonnes !",
         "method": "Comment faire ?",
-        "line": "Les nombres à gauche d'une ligne ou en haut d'une colonne indiquent le nombre de case consécutives à remplir en cliquant dessus. Il y a au moins un espace vide entre de séries consécutives.",
+        "line": "Les nombres à gauche d'une ligne ou en haut d'une colonne indiquent le nombre de case consécutives à remplir en cliquant dessus. Il y a au moins un espace vide entre deux séries consécutives.",
         "tipTitle": "Indices pour résoudre une grille",
         "tip1": "Il est possible de préciser les cases qui doivent rester vides pour avoir un repère visuel, avec le click droit.",
         "tip2": "On peut vérifier jusqu'à 3 fois par partie que les cases remplies jusqu'à présentes sont correctes.",
-        "tip3": "En début de partie, il faut commencer par remplir les lignes/colonnes avec les plus grands indices, avec des cases qui vont forcément être remplies."
+        "tip3": "En début de partie, il faut commencer par remplir les lignes/colonnes avec les plus grands indices, avec des cases qui vont forcément être remplies.",
+        "tip4": "Les indices s'estompent si le bon nombre de case est remplie, et cela même si ce ne sont pas les bonnes cases !",
+        "tip5": "Il est possible de remplir la grille plus rapidement en maintenant un bouton enfoncé (gauche pour remplir, droit pour les croix) et en passant sur plusieurs cases que l'on souhaite changer."
     }
  }

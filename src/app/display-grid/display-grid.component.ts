@@ -192,6 +192,7 @@ export class DisplayGridComponent implements OnInit {
         this.crossed = true;
         this.clicked = false;
         picrossCase.markState();
+        this.changeIndice(i, j);
       }
     }
   }
@@ -203,6 +204,7 @@ export class DisplayGridComponent implements OnInit {
     } else {
       if ( this.crossed ) {
         picrossCase.markState();
+        this.changeIndice(i, j);
       }
     }
   }

@@ -12,7 +12,14 @@
 .right{
     text-align: end;
 }
+
 .imgCompleted{
-    position: relative;
-    left: 30%;
+    text-align: center;
+
+}
+
+@media screen and (max-width:500px){
+    .too-long{
+        max-width: 270px;
+    }
 }

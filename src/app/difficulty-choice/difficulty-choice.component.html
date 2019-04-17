@@ -6,12 +6,12 @@
         <option *ngFor="let x of [5,10,15]" [ngValue]="x">{{x}}</option>
       </select>
 
-      <label class="category col-5 col-md-1">{{ 'RANDOM.difficulty' | translate }}</label>
+      <label class="category col-5 col-md-2">{{ 'RANDOM.difficulty' | translate }}</label>
         <select class="col-md-2 col-5" [(ngModel)]="this.gridState.difficulty" >
           <option *ngFor="let x of difficultyList" [ngValue]="difficultyCorrespond(x)">{{ x | translate }}</option>
         </select>
 
-        <div class="col-3 col-md-1"></div>
+        <div class="col-3 col-md"></div>
     <button (click)="generate()" type="button" class="col-lg-2 col-md-2 col-6 upper-bar btn btn-light">
       <span class="glyphicon glyphicon-refresh" ></span> <ng-container>{{ 'RANDOM.refresh' | translate }}</ng-container>
     </button>
