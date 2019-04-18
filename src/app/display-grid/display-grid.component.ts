@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Case } from '../case';
 import { GridStateService } from '../grid-state.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { $$ } from 'protractor';
 
 @Component({
   selector: 'app-display-grid',
@@ -75,29 +76,39 @@ export class DisplayGridComponent implements OnInit {
     let caseVerif = true;
     let countInd = 0;
     for (const element of indicesRow) {
-      let compt = element;
-      caseVerif = true;
 
-      while (current < this.gridState.grille.size && !(this.gridState.grille.played[i][current].getState() === Case.FULL)) {
-        current++;
-//        depCurrent = current;
-      }
-      while (current < this.gridState.grille.size && this.gridState.grille.played[i][current].getState() === Case.FULL) {
-        compt--;
-        current++;
-      }
-      if (compt !== 0) {
-        caseVerif = false;
+      while (current < this.gridState.grille.size) {
+        let compt = element;
+        caseVerif = true;
+
+        while (current < this.gridState.grille.size && !(this.gridState.grille.played[i][current].getState() === Case.FULL)) {
+          current++;
+  //        depCurrent = current;
+        }
+        while (current < this.gridState.grille.size && this.gridState.grille.played[i][current].getState() === Case.FULL) {
+          compt--;
+          current++;
+        }
+        if (compt !== 0) {
+          caseVerif = false;
+        }
+
+        if (caseVerif &&
+          ((countInd === 0 ||
+          countInd > 0 && (indicesRow.slice(0, countInd).reduce(this.sumIndiceArray) < current - element))
+          && (countInd === indicesRow.length - 1 ||
+          indicesRow.slice(countInd + 1).reduce(this.sumIndiceArray) < (this.gridState.grille.size - current) ))) {
+          stopVerif = current;
+          this.gridState.grille.markIndRow[i][countInd] = true;
+          break;
+        } else {
+          this.gridState.grille.markIndRow[i][countInd] = false;
+        }
       }
 
-      if (caseVerif && (countInd === 0 || (countInd > 0 && indicesRow.slice(0, countInd).reduce(this.sumIndiceArray) < current - 1))) {
-        stopVerif = current;
-        this.gridState.grille.markIndRow[i][countInd] = true;
-      } else {
+      if (this.gridState.grille.markIndRow[i][countInd] === false) {
         current = stopVerif;
-        this.gridState.grille.markIndRow[i][countInd] = false;
       }
-
 //      depCurrent = stopVerif;
       countInd++;
     }
@@ -119,32 +130,43 @@ export class DisplayGridComponent implements OnInit {
     countInd = 0;
 //    depCurrent = 0;
     for (const element of indicesCol) {
-      caseVerif = true;
-      let compt = element;
 
-      while (current < this.gridState.grille.size && !(this.gridState.grille.played[current][j].getState() === Case.FULL)) {
- //       depCurrent = current;
-        current++;
-      }
-      while (current < this.gridState.grille.size && this.gridState.grille.played[current][j].getState() === Case.FULL) {
-        compt--;
-        current++;
+      while (current < this.gridState.grille.size) {
+        caseVerif = true;
+        let compt = element;
+
+        while (current < this.gridState.grille.size && !(this.gridState.grille.played[current][j].getState() === Case.FULL)) {
+  //       depCurrent = current;
+          current++;
+        }
+        while (current < this.gridState.grille.size && this.gridState.grille.played[current][j].getState() === Case.FULL) {
+          compt--;
+          current++;
+        }
+
+        if (compt !== 0) {
+  //        || !((current === this.gridState.grille.size || this.gridState.grille.played[current][j].getState() === Case.CROSS)
+  //        && (depCurrent === 0 || this.gridState.grille.played[depCurrent][j].getState() === Case.CROSS))) {
+          caseVerif = false;
+        }
+
+        if (caseVerif &&
+          ((countInd === 0 ||
+          countInd > 0 && (indicesCol.slice(0, countInd).reduce(this.sumIndiceArray) < current - element))
+          && (countInd === indicesCol.length - 1 ||
+          indicesCol.slice(countInd + 1).reduce(this.sumIndiceArray) < (this.gridState.grille.size - current) ))) {
+          stopVerif = current;
+          this.gridState.grille.markIndCol[j][countInd] = true;
+          break;
+        } else {
+          this.gridState.grille.markIndCol[j][countInd] = false;
+        }
+
       }
 
-      if (compt !== 0) {
-//        || !((current === this.gridState.grille.size || this.gridState.grille.played[current][j].getState() === Case.CROSS)
-//        && (depCurrent === 0 || this.gridState.grille.played[depCurrent][j].getState() === Case.CROSS))) {
-        caseVerif = false;
-      }
-
-      if (caseVerif &&  (countInd === 0 || (countInd > 0 && indicesCol.slice(0, countInd).reduce(this.sumIndiceArray) < current - 1))) {
-        stopVerif = current;
-        this.gridState.grille.markIndCol[j][countInd] = true;
-      } else {
+      if (this.gridState.grille.markIndRow[i][countInd] === false) {
         current = stopVerif;
-        this.gridState.grille.markIndCol[j][countInd] = false;
       }
-
 //      depCurrent = stopVerif;
       countInd++;
     }
