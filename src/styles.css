@@ -7,7 +7,7 @@ html, body {
     background-color: aliceblue;
     font-family: Roboto, sans-serif;
 }
-#global-grid{
+.main-frame{
     height: inherit;
     background-color: white;
     box-shadow: 10px 0px 9px gray, -10px 0px 9px gray;

@@ -1,4 +1,4 @@
-import { Statement } from '@angular/compiler';
+import { isString } from 'util';
 
 export class Case {
     static readonly EMPTY = 0;
@@ -6,11 +6,17 @@ export class Case {
     static readonly CROSS = 2;
     private color: string;
 
-    constructor(private state: number= 0, colorArg?: string) {
-        if (colorArg) {
+    constructor(private state: number= 0, colorArg?: any) {
+        let tempColor: number;
+
+        if (isString(colorArg)) {
             this.color = colorArg;
         } else {
-            const tempColor = Math.floor(Math.random() * 4) + 1;
+            if (!isNaN(colorArg)) {
+                tempColor = colorArg;
+            } else {
+                tempColor = Math.floor(Math.random() * 4) + 1;
+            }
             switch (tempColor) {
                 case 0:
                     this.color = 'white';

@@ -33,6 +33,12 @@ export class GridStateService {
     this.endChoice = endingChrono;
   }
 
+  loadGrid(grid: any) {
+    this.grille = new Grille(grid.size, grid.difficulty, grid.solution, grid.color);
+    this.reset();
+    this.endChoice = false;
+  }
+
   reset() {
     this.nbError =  Array<number>(this.MAX_ERROR).fill(0, 0, this.MAX_ERROR);
     this.currentError = 0;

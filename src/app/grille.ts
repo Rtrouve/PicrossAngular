@@ -15,7 +15,7 @@ export class Grille {
 
     maxIndRow = 0;
 
-    constructor(public size: number= 5, difficulty: number = 5, sol?: Case[][], pla?: Case[][]) {
+    constructor(public size: number= 5, difficulty: number = 5, sol?: any, color?: any) {
 
         // Create the grid to solve (at random)
         for (let row = 0; row < this.size; row++) {
@@ -23,29 +23,29 @@ export class Grille {
             this.played[row] = new Array();
             for (let col = 0; col < this.size; col++) {
 
-                // The state of the cell (Full or Empty)
-                // 5O% for each, change this to change difficulty (Emptier is more difficult)
-                const stateTemp = Math.floor(Math.random() * 10);
-
-                // Create with color 'white' if empty, else random
-                if (stateTemp > difficulty ) {
-                    this.solution[row][col] = new Case(0, 'white');
+                if (sol) {
+                    if (sol[row][col] === 0) {
+                        this.solution[row][col] = new Case(0, 0);
+                    } else {
+                        this.solution[row][col] = new Case(1, color[row][col]);
+                    }
                 } else {
-                    this.solution[row][col] = new Case(1);
-                }
 
+                    // The state of the cell (Full or Empty)
+                    // 5O% for each, change this to change difficulty (Emptier is more difficult)
+                    const stateTemp = Math.floor(Math.random() * 10);
+
+                    // Create with color 'white' if empty, else random
+                    if (stateTemp > difficulty ) {
+                        this.solution[row][col] = new Case(0, 0);
+                    } else {
+                        this.solution[row][col] = new Case(1);
+                    }
+                }
                 // Create empty player grid with the right color
                 this.played[row][col] = new Case(0, this.solution[row][col].getColor());
             }
 
-        }
-
-        // For saved grid, not used yet
-        if (sol) {
-            this.solution = sol;
-        }
-        if (pla) {
-            this.played = pla;
         }
 
         // Creating the indications to solve the grid

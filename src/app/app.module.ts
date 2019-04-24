@@ -17,6 +17,8 @@ import { FooterComponent } from './footer/footer.component';
 import { DifficultyChoiceComponent } from './difficulty-choice/difficulty-choice.component';
 import { RandomComponent } from './random/random.component';
 import { ExplanationComponent } from './explanation/explanation.component';
+import { LevelSelectionComponent } from './level-selection/level-selection.component';
+import { LevelDisplayComponent } from './level-display/level-display.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ExplanationComponent } from './explanation/explanation.component';
     FooterComponent,
     DifficultyChoiceComponent,
     RandomComponent,
-    ExplanationComponent
+    ExplanationComponent,
+    LevelSelectionComponent,
+    LevelDisplayComponent
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,8 @@
     "HEADER": {
         "title": "Picross",
         "random": "Hasard",
-        "timeTrial": "Contre la montre"
+        "timeTrial": "Contre la montre",
+        "level": "Niveau"
     },
     "TIMETRIAL": {
         "max": "Score Max",
@@ -18,6 +19,14 @@
         "easy": "Facile",
         "medium": "Moyenne",
         "hard": "Difficile"
+    },
+    "SELECTION": {
+        "play": "Jouer"
+    },
+    "LEVEL": {
+        "back": "< Retour",
+        "previous": "Précédent",
+        "next": "Suivant"
     },
     "FOOTER": {
         "cheer": "Bravo !",
