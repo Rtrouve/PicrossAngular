@@ -33,6 +33,9 @@ export class Case {
                 case 4:
                     this.color =  'blue';
                     break;
+                case 5:
+                    this.color = 'brown';
+                    break;
                 default:
                     this.color =  'black';
                     break;

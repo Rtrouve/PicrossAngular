@@ -25,7 +25,7 @@ export class Grille {
 
                 if (sol) {
                     if (sol[row][col] === 0) {
-                        this.solution[row][col] = new Case(0, 0);
+                        this.solution[row][col] = new Case(0, color[row][col]);
                     } else {
                         this.solution[row][col] = new Case(1, color[row][col]);
                     }
