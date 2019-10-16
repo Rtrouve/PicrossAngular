@@ -11,11 +11,11 @@
 
   <table >
     <tr class='row_p' [ngClass]="{'row_p_5': (i+1)%5 == 0 }" *ngFor="let picrossRow of gridState.grille.played; let i=index">
-    <div class='gridRow'>
-      <td class='indRow' [ngClass]="{'completed' : gridState.grille.markIndRow[i][j], 'to-complete' : !gridState.grille.markIndRow[i][j], 'indiceVisual' : visualIndiceRow[i]}"  *ngFor="let ind of gridState.grille.indRow[i];let j=index">
+    <div class='gridRow' [ngClass]="{'indiceVisual' : visualIndiceRow[i]}" >
+      <td class='indRow' [ngClass]="{'completed' : gridState.grille.markIndRow[i][j], 'to-complete' : !gridState.grille.markIndRow[i][j]}"  *ngFor="let ind of gridState.grille.indRow[i];let j=index">
           {{ind}}
       </td>
-      <td class='indRow' [ngClass]="{'indiceVisual' : visualIndiceRow[i]}"  *ngIf="gridState.grille.indRow[i].length < gridState.grille.maxIndRow">
+      <td class='indRow' *ngIf="gridState.grille.indRow[i].length < gridState.grille.maxIndRow">
         &nbsp;&nbsp;
       </td>
     </div>
