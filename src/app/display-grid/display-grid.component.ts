@@ -43,7 +43,7 @@ import { $$ } from 'protractor';
   ],
   templateUrl: './display-grid.component.html',
   providers: [GridStateService],
-  styleUrls: ['./display-grid.component.css']
+  styleUrls: ['./display-grid.component.scss']
 })
 export class DisplayGridComponent implements OnInit {
   @Input() gridState: GridStateService;

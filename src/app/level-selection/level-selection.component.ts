@@ -4,7 +4,7 @@ import { LevelService } from '../level.service';
 @Component({
   selector: 'app-level-selection',
   templateUrl: './level-selection.component.html',
-  styleUrls: ['./level-selection.component.css']
+  styleUrls: ['./level-selection.component.scss']
 })
 export class LevelSelectionComponent implements OnInit {
   levels: Array<any>;

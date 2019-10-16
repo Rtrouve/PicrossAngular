@@ -4,7 +4,7 @@ import { GridStateService } from '../grid-state.service';
 @Component({
   selector: 'app-random',
   templateUrl: './random.component.html',
-  styleUrls: ['./random.component.css']
+  styleUrls: ['./random.component.scss']
 })
 export class RandomComponent implements OnInit {
 

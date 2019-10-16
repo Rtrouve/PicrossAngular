@@ -30,11 +30,13 @@
 .indic-result{
     margin: 20px 8px;
 }
-.case-1{
-    background-color: black;
-}
-.case-0{
-    background-color: white;
+.case{
+    &-1{
+        background-color: black;
+    }
+    &-0{
+        background-color: white;
+    }
 }
 .message-victory{
     text-align: center;

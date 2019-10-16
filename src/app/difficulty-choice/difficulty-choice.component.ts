@@ -4,7 +4,7 @@ import { GridStateService } from '../grid-state.service';
 @Component({
   selector: 'app-difficulty-choice',
   templateUrl: './difficulty-choice.component.html',
-  styleUrls: ['./difficulty-choice.component.css']
+  styleUrls: ['./difficulty-choice.component.scss']
 })
 export class DifficultyChoiceComponent implements OnInit {
   @Input() gridState: GridStateService;

@@ -4,7 +4,7 @@ import { GridStateService } from '../grid-state.service';
 @Component({
   selector: 'app-chrono',
   templateUrl: './chrono.component.html',
-  styleUrls: ['./chrono.component.css']
+  styleUrls: ['./chrono.component.scss']
 })
 export class ChronoComponent implements OnInit {
   TIMEPERIOD = 100;

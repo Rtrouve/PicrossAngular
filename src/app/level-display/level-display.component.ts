@@ -7,7 +7,7 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-level-display',
   templateUrl: './level-display.component.html',
-  styleUrls: ['./level-display.component.css']
+  styleUrls: ['./level-display.component.scss']
 })
 export class LevelDisplayComponent implements OnInit {
   isFetched = false;

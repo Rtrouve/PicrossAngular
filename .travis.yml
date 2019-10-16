@@ -21,7 +21,6 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 - npm install -g @angular/cli
 script:
-- npm install codecov -g
 - ng lint
 - ng build --prod --aot
 - ng test --watch=false
@@ -35,8 +34,6 @@ deploy:
   target_branch: 'master'
   on:
     branch: master
-after_success:
-- codecov -f coverage/*.json
 env:
   matrix:
     secure: kT1JLFE55wMRGrMtsnooRNAmGI6aQ9sui3doBkVTKpbQd4Scq80ZadJ11TMZikDKTD/pbkOKCbq7g5Jfn6AKQIDwQkplOe/p2B9jXXAjBXY3GpEWrjj997dposRTaQUn4qyM2SDQ8wVtEEk+Dw4mfjaP4EoaaHvokImnYKQOQn10hxF3kbRQictGD11dvd6Ta1GqTXLkFFlL7LbiZhHMWEWMY9lfFxrsBW35ZMAsdBHjJCxpWKeJn0pIxUnY8Aaf2JrNvtTSoYflSaynqhHcvFYITeLQoXHaZrqWz8PBLJJobmBI8H0ghzfrhkdzKxwA3F6IVSJ1wNZ371LFHjud0WKjACMYZAGBdYSpxKGw4QK4NLv7PJCYqwJT85kwC5nGmiKomGzRT7U+xRldAthWAIOaunH334rhhRMyv0gjpoA17BPk+p642mKPbS9jeaeqAwMeuAmASbiPiVzp52dmoulBIYn8499PEMseoHwEbyZPHhaB9gQ/U3AeSDg1PPPKX1PvBIKhpGdXIuwkaoX1CRe9X2vdmiAXDDHG0th7O+C4S9mAyax6tUrjUDsxN1259sdFLfHseLhJJb8Dkj9fGW52Og1LHtcD27l/PvS+Yj5vzK999HFVCjstHsHYgvoMuHJGE5uC8xo1oXGUR6yHDz9NMcfYL0VlDMavVpXbGZw=
